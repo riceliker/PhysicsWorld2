@@ -23,4 +23,9 @@ Also the Physics World 3 will be start, But It is a hard work.
 
 ## How to play it
 play this game is very easy.
-1. Download the Godot Game Engine: [Download]()
+1. Download the Godot Game Engine: [Download](https://godotengine.org).
+2. Install this program in the folder
+3. Open the Godot Engine, Add New Program, Chosie **project.godot**
+
+## Other 
+

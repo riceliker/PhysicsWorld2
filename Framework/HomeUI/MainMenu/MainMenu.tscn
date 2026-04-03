@@ -1,16 +1,22 @@
 [gd_scene format=3 uid="uid://d32anltgrkibf"]
 
 [ext_resource type="FontFile" uid="uid://dmt33ho8dvgvl" path="res://Assets/font/Robtronika.ttf" id="1_jsjbj"]
+[ext_resource type="Script" uid="uid://biofvap47nh4a" path="res://Framework/HomeUI/MainMenu/MainMenu.cs" id="1_lwrlv"]
 [ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_lwrlv"]
 [ext_resource type="Texture2D" uid="uid://dcbudrjt72ald" path="res://Framework/HomeUI/MainMenu/Assets/GitHub.svg" id="3_5p6du"]
 
-[node name="MainMenu" type="Control" unique_id=543475209]
+[node name="MainMenu" type="Control" unique_id=543475209 node_paths=PackedStringArray("to_story_mode_button", "to_battle_mode_Button", "to_optional_Button", "to_dlc_manager_Button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lwrlv")
+to_story_mode_button = NodePath("Button/Story")
+to_battle_mode_Button = NodePath("Button/Battle")
+to_optional_Button = NodePath("Button/Optional")
+to_dlc_manager_Button = NodePath("Button/DLC")
 
 [node name="Title" type="Control" parent="." unique_id=1917747191]
 anchors_preset = 0

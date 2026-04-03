@@ -1,0 +1,2 @@
+﻿53738
+/Users/riceliker/Applications/Godot_mono.app/Contents/MacOS/Godot

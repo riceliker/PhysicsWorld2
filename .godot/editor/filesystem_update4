@@ -1,9 +1,0 @@
-res://Basic/MainMenu/main_menu.tscn
-res://Basic/Character/Character.tscn
-res://Basic/Character/Script/model.gd
-res://Basic/Character/Script/CharacterList.gd
-res://Basic/Character/character_icon_click.tscn
-res://Basic/Character/Script/CharacterHead.gd
-res://DLC/Registry/DLCRegistrier.json
-res://DLC/DLCFile/com.offical.main/manifest.json
-res://DLC/DLCFile/com.offical.main/Character/Assets/character.json

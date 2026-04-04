@@ -1,0 +1,71 @@
+# LANGUAGE translation for physics-world-2 for the following files:
+# res://Framework/HomeUI/MainMenu/MainMenu.tscn
+# res://Framework/HomeUI/Optional/Optional.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: physics-world-2\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: Framework/HomeUI/MainMenu/MainMenu.tscn
+msgid "PHYSICS WORLD 2"
+msgstr "物理世界2"
+
+#: Framework/HomeUI/MainMenu/MainMenu.tscn
+msgid "Story Mode"
+msgstr "剧情模式"
+
+#: Framework/HomeUI/MainMenu/MainMenu.tscn
+msgid "Battle Mode"
+msgstr "对战模式"
+
+#: Framework/HomeUI/MainMenu/MainMenu.tscn
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Optional"
+msgstr "设置"
+
+#: Framework/HomeUI/MainMenu/MainMenu.tscn
+msgid "DLC Manager"
+msgstr "DLC管理器"
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "General"
+msgstr "常规"
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Windows"
+msgstr "窗口"
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Input"
+msgstr "输入"
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Voice"
+msgstr "音频"
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Debug"
+msgstr "调试"
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Lanuage:"
+msgstr "语言："
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Windows Model"
+msgstr "窗口模式"
+
+msgid "physics-world-2"
+msgstr ""

@@ -1,0 +1,9 @@
+{
+    "path-intellisense.mappings": {
+        "res://": "${workspaceFolder}"
+    },
+    "path-intellisense.extensionOnImport": true,
+    "path-intellisense.showHiddenFiles": true,
+    "files.autoGuessEncoding": true,
+    "godotTools.editorPath.godot4": "/Users/riceliker/Applications/Godot_mono.app"
+}

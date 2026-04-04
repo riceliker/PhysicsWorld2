@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="physics-world-2"
-config/features=PackedStringArray("4.6", "Forward Plus")
+run/main_scene="uid://d32anltgrkibf"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Main="*uid://c7gqgsdcp7hbm"
 
 [display]
 
@@ -22,6 +27,11 @@ window/size/viewport_height=1080
 [dotnet]
 
 project/assembly_name="physics-world"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assets/lang/zh_CN.po")
+locale/translations_pot_files=PackedStringArray("res://Framework/HomeUI/MainMenu/MainMenu.tscn", "res://Framework/HomeUI/Optional/Optional.tscn")
 
 [physics]
 

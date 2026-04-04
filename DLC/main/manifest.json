@@ -1,0 +1,20 @@
+{
+	"DLC_Name": "main",
+	"DLC_Full_Name": "com.offical.main",
+	"DLC_Version": [0, 0, 1],
+	"Physics_World_Framework":{
+		"Framework_Major_Support_Version":[2, 1]
+	},
+	"Registry_List":[
+		"Character",
+		"Map",
+		"Story",
+		"StoryWithMap",
+		"Item"
+	],
+	"Information":{
+		"author": "riceliker",
+		"description": "The main stories about this game.",
+		"url": ""
+	}
+}

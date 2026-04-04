@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://d32anltgrkibf"]
 
 [ext_resource type="FontFile" uid="uid://dmt33ho8dvgvl" path="res://Assets/font/Robtronika.ttf" id="1_jsjbj"]
-[ext_resource type="Script" uid="uid://biofvap47nh4a" path="res://Framework/HomeUI/MainMenu/MainMenu.cs" id="1_lwrlv"]
+[ext_resource type="Script" uid="uid://biofvap47nh4a" path="res://Framework/HomeUI/MainMenu/Script/MainMenu.cs" id="1_lwrlv"]
 [ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_lwrlv"]
 [ext_resource type="Texture2D" uid="uid://dcbudrjt72ald" path="res://Framework/HomeUI/MainMenu/Assets/GitHub.svg" id="3_5p6du"]
 
-[node name="MainMenu" type="Control" unique_id=543475209 node_paths=PackedStringArray("to_story_mode_button", "to_battle_mode_Button", "to_optional_Button", "to_dlc_manager_Button")]
+[node name="MainMenu" type="Control" unique_id=543475209 node_paths=PackedStringArray("to_story_mode_button", "to_battle_mode_button", "to_optional_button", "to_DLC_manager_button", "quit_game_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,9 +14,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lwrlv")
 to_story_mode_button = NodePath("Button/Story")
-to_battle_mode_Button = NodePath("Button/Battle")
-to_optional_Button = NodePath("Button/Optional")
-to_dlc_manager_Button = NodePath("Button/DLC")
+to_battle_mode_button = NodePath("Button/Battle")
+to_optional_button = NodePath("Button/Optional")
+to_DLC_manager_button = NodePath("Button/DLC")
+quit_game_button = NodePath("Button/Quit")
 
 [node name="Title" type="Control" parent="." unique_id=1917747191]
 anchors_preset = 0
@@ -83,6 +84,18 @@ offset_bottom = 850.0
 theme_override_fonts/font = ExtResource("2_lwrlv")
 theme_override_font_sizes/font_size = 64
 text = "DLC Manager"
+flat = true
+alignment = 2
+
+[node name="Quit" type="Button" parent="Button" unique_id=709768566]
+layout_mode = 0
+offset_left = 1420.0
+offset_top = 900.0
+offset_right = 1920.0
+offset_bottom = 1000.0
+theme_override_fonts/font = ExtResource("2_lwrlv")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
 flat = true
 alignment = 2
 

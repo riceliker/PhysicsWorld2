@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://8jmfb66a4rv"]
+
+[ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/HomeUI/Template/HeadRow/HeadRow.tscn" id="2_chx5e"]
+[ext_resource type="Script" uid="uid://dwtfqidlw4vsp" path="res://Framework/HomeUI/Template/HeadRow/Script/HeadRow.cs" id="2_xb0fq"]
+
+[node name="DLCManager" type="Control" unique_id=352480533]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_xb0fq")
+
+[node name="HeadRow" parent="." unique_id=158803232 instance=ExtResource("2_chx5e")]
+layout_mode = 1
+title_text = "DLC Manager"

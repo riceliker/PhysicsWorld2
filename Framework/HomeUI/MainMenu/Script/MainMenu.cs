@@ -35,7 +35,7 @@ public partial class MainMenu: Control
 
 	private void onDLCManagerButtonClicked()
 	{
-		
+		GetTree().ChangeSceneToFile("res://Framework/HomeUI/DLCManager/DLCManager.tscn");
 	}
 
 	private void quitGame()

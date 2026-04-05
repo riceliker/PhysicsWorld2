@@ -1,46 +1,21 @@
 [gd_scene format=3 uid="uid://dwhhqtw2r5nal"]
 
-[ext_resource type="FontFile" uid="uid://dmt33ho8dvgvl" path="res://Assets/font/Robtronika.ttf" id="1_037hx"]
 [ext_resource type="Script" uid="uid://cs6loudxkpuxd" path="res://Framework/HomeUI/Optional/Script/SwitchClass.cs" id="2_546uq"]
 [ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_w21ue"]
 [ext_resource type="Script" uid="uid://5yp4u1ksxw6m" path="res://Framework/HomeUI/Optional/Script/Language.cs" id="3_chx5b"]
+[ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/HomeUI/Template/HeadRow/HeadRow.tscn" id="5_546uq"]
 [ext_resource type="Script" uid="uid://b4yqmduelwq33" path="res://Framework/HomeUI/Optional/Script/WindowsModel.cs" id="5_eo4vw"]
-[ext_resource type="Script" uid="uid://bgng0lp2pje6k" path="res://Framework/HomeUI/Optional/Back.cs" id="6_eo4vw"]
 
 [node name="Optional" type="Control" unique_id=1180624508]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 45.0
-offset_top = 15.0
-offset_right = 45.0
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="ColorRect" parent="." unique_id=526844728]
-layout_mode = 0
-offset_left = -45.0
-offset_top = -15.0
-offset_right = 1875.0
-offset_bottom = 145.0
-color = Color(0.5529412, 0.54509807, 0.99607843, 1)
-
-[node name="Label" type="Label" parent="Title" unique_id=1181623280]
-layout_mode = 0
-offset_right = 1161.0
-offset_bottom = 147.0
-theme_override_fonts/font = ExtResource("1_037hx")
-theme_override_font_sizes/font_size = 128
-text = "Optional"
+anchors_preset = 0
 
 [node name="Class" type="ColorRect" parent="." unique_id=997778669 node_paths=PackedStringArray("to_general_button", "to_windows_button", "to_input_button", "to_voice_button", "to_debug_button", "general", "windows", "input", "voice", "debug")]
 layout_mode = 0
-offset_left = -45.0
-offset_top = 145.0
-offset_right = 435.0
-offset_bottom = 1065.0
+offset_left = -1.0
+offset_top = 157.0
+offset_right = 479.0
+offset_bottom = 1077.0
 color = Color(0.1764706, 0.1764706, 0.1764706, 1)
 script = ExtResource("2_546uq")
 to_general_button = NodePath("General")
@@ -189,21 +164,16 @@ offset_right = 480.0
 offset_bottom = 160.0
 
 [node name="Debug" type="Control" parent="." unique_id=2109921890]
-visible = false
 anchors_preset = 0
 offset_left = 480.0
 offset_top = 160.0
 offset_right = 480.0
 offset_bottom = 160.0
 
-[node name="Back" type="Button" parent="." unique_id=2011075552 node_paths=PackedStringArray("back_button")]
-layout_mode = 0
-offset_left = 1654.0
-offset_top = 17.0
-offset_right = 1828.0
-offset_bottom = 113.0
-theme_override_font_sizes/font_size = 64
-text = "BACK"
-flat = true
-script = ExtResource("6_eo4vw")
-back_button = NodePath(".")
+[node name="HeadRow" parent="." unique_id=158803232 instance=ExtResource("5_546uq")]
+layout_mode = 1
+offset_left = -5.0
+offset_top = -1.0
+offset_right = -5.0
+offset_bottom = -1.0
+title_text = "Optional"

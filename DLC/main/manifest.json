@@ -1,20 +1,15 @@
 {
-	"DLC_Name": "main",
-	"DLC_Full_Name": "com.offical.main",
-	"DLC_Version": [0, 0, 1],
-	"Physics_World_Framework":{
-		"Framework_Major_Support_Version":[2, 1]
-	},
-	"Registry_List":[
-		"Character",
-		"Map",
-		"Story",
-		"StoryWithMap",
-		"Item"
-	],
-	"Information":{
-		"author": "riceliker",
-		"description": "The main stories about this game.",
-		"url": ""
-	}
+    "DLC_Name": "Main",
+    "DLC_Version": [1, 0, 0],
+    "Physics_World_API_Version": [2, 1],
+    "Registry": [
+        "Character",
+        "Story",
+        "Map",
+        "lang"
+    ],
+    "DLC_Information":{
+        "Description": "The offical DLC in Physics World 2",
+        "author": "riceliker"
+    }
 }

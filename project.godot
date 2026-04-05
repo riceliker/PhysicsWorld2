@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Main="*uid://c7gqgsdcp7hbm"
+DLCReaderMain="*uid://cnpi3ms03g3u1"
 
 [display]
 

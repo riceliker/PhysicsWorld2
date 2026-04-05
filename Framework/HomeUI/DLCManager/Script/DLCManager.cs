@@ -17,7 +17,11 @@ public partial class DLCManager : Control
 			item_node.Position = new Vector2(0, 160 * count + 20);
 			count++;
 			AddChild(item_node);
-			Button btn = item_node.GetNode<Button>("Button");
+			item_node.GetButton().Pressed += () =>
+			{
+				
+			};
+		
 		}
 	}
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://rwf3670bjufr" path="res://Framework/HomeUI/DLCManager/Script/DLCManager.cs" id="1_chx5e"]
 [ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/HomeUI/Template/HeadRow/HeadRow.tscn" id="2_chx5e"]
 [ext_resource type="PackedScene" uid="uid://sh0hmapdb8cx" path="res://Framework/HomeUI/DLCManager/Tree/DLCListItem.tscn" id="3_chx5e"]
+[ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="4_gxv2o"]
 
 [node name="DLCManager" type="Control" unique_id=352480533 node_paths=PackedStringArray("h_box_container")]
 layout_mode = 3
@@ -34,3 +35,21 @@ layout_mode = 2
 [node name="DlcList" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=364121030 instance=ExtResource("3_chx5e")]
 visible = false
 layout_mode = 2
+
+[node name="Description" type="ColorRect" parent="." unique_id=307435106]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 160.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.27935672, 0.27935672, 0.27935672, 1)
+
+[node name="Name" type="Label" parent="Description" unique_id=413462094]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("4_gxv2o")
+theme_override_font_sizes/font_size = 64
+text = "Main"

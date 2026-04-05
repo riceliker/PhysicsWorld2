@@ -21,7 +21,7 @@ public partial class DLCListItem : Control
 		Godot.Collections.Dictionary root = json.Data.AsGodotDictionary();
 		Godot.Collections.Array version_list = root["DLC_Version"].AsGodotArray();
 		version.Text = ((int) version_list[0]).ToString() + "," + ((int) version_list[1]).ToString() + "," + ((int) version_list[2]).ToString();
-		string icon_path = path + "head.png";
+		string icon_path = path + "icon.png";
 		Image image_icon = Image.CreateEmpty(1, 1, false, Image.Format.Rgba8);
 		if (image_icon.Load(icon_path) != Error.Ok)
 		{
@@ -47,6 +47,10 @@ public partial class DLCListItem : Control
 		}
 		return json;
 	}
+	public Button GetButton()
+    {
+        return button;
+    }
 	public void switchIsAble(bool is_able)
 	{
 		is_able_bool = is_able;

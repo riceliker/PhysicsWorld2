@@ -6,9 +6,9 @@ public partial class GetDLCFromRes : Node
 {
 	const string DLC_RES_PATH_HEAD = "res://DLC/";
 	const string DLC_NEED_LOAD_PATH = "res://DLC/WhatDLCNameYouLoad.json";
-	private List<string> dlc_need_load_list;
-	private List<string> dlc_name_which_load_successful;
-	private List<string> dlc_path_list;
+	private List<string> dlc_need_load_list = new List<string>();
+	private List<string> dlc_name_which_load_successful = new List<string>();
+	private List<string> dlc_path_list = new List<string>();
  	public override void _Ready()
 	{
 		GD.Print("Log->DLCReaderRES: Start load DLC from RES://");
@@ -56,9 +56,12 @@ public partial class GetDLCFromRes : Node
 			{
 				GD.Print("Warning->DLCManagerRES: This DLC was registry, But not found!");
 			}
-			dlc_name_which_load_successful.Add(DLC_name);
-			dlc_path_list.Add(DLC_res_path);
-			GD.Print("Log->DLCReader: The path of DLC: "+ DLC_name +" was got successful.");
+			else
+			{
+				dlc_name_which_load_successful.Add(DLC_name);
+				dlc_path_list.Add(DLC_res_path);
+				GD.Print("Log->DLCReader: The path of DLC: "+ DLC_name +" was got successful.");
+			}
 		}
 	}
 

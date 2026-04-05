@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public partial class DLCReaderMain : Node
 {
-	private static List<DLCInfoPack> DLC_data;
+	private static List<DLCInfoPack> DLC_data = new List<DLCInfoPack>();
 	private struct DLCInfoPack
 	{
 		public DLCInfoPack(string name, string path)

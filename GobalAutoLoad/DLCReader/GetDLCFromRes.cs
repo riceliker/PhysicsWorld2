@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 public partial class GetDLCFromRes : Node
 {
-	const string DLC_RES_PATH_HEAD = "res://DLC/";
-	const string DLC_NEED_LOAD_PATH = "res://DLC/WhatDLCNameYouLoad.json";
+	const string DLC_RES_PATH_HEAD = "res://DLCLocal/";
+	const string DLC_NEED_LOAD_PATH = "res://DLCLocal/WhatDLCNameYouLoad.json";
 	private List<string> dlc_need_load_list = new List<string>();
 	private List<string> dlc_name_which_load_successful = new List<string>();
 	private List<string> dlc_path_list = new List<string>();
  	public override void _Ready()
 	{
-		GD.Print("Log->DLCReaderRES: Start load DLC from RES://");
+		GD.Print("Log->DLCReaderRES: Start load DLC from res://");
 		getWhatDLCWillLoad();
 		getDLCPathFromRes();
 	}
@@ -20,7 +20,7 @@ public partial class GetDLCFromRes : Node
 	{
 		if (!FileAccess.FileExists(DLC_NEED_LOAD_PATH))
 		{
-			GD.Print("Error->DLCReaderRES: Important file(res://DLC/WhatDLCNameYouLoad.json) is not found!");
+			GD.Print("Error->DLCReaderRES: Important file(res://DLCLocal/WhatDLCNameYouLoad.json) is not found!");
 			return;
 		}
 		string dlc_need_load_list_json_text = FileAccess.GetFileAsString(DLC_NEED_LOAD_PATH);
@@ -37,12 +37,12 @@ public partial class GetDLCFromRes : Node
 			}
 			else
 			{
-    		GD.Print("Error->DLCReaderRES: File(Res://DLC/WhatDLCNameYouLoad.json) need important key(WhatDLCNameYouLoad) is lost!");
+    		GD.Print("Error->DLCReaderRES: File(res://DLCLocal/WhatDLCNameYouLoad.json) need important key(WhatDLCNameYouLoad) is lost!");
 			}
 		}
 		else
 		{
-			GD.Print("Error->DLCReaderRES: Important file(Res://DLC/WhatDLCNameYouLoad.json) is not a JSON file!");
+			GD.Print("Error->DLCReaderRES: Important file(res://DLCLocal/WhatDLCNameYouLoad.json) is not a JSON file!");
 		}
 	}
 

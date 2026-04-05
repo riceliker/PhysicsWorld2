@@ -5,21 +5,15 @@
 
 [node name="HeadRow" type="Control" unique_id=158803232 node_paths=PackedStringArray("title_label", "back_button")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_1boj8")
 title_label = NodePath("Title/Label")
 back_button = NodePath("Back")
 
 [node name="Title" type="ColorRect" parent="." unique_id=1116334277]
 layout_mode = 0
-offset_left = 4.0
-offset_top = -1.0
-offset_right = 1924.0
-offset_bottom = 159.0
+offset_right = 1920.0
+offset_bottom = 160.0
 color = Color(0.5529412, 0.54509807, 0.99607843, 1)
 
 [node name="Label" type="Label" parent="Title" unique_id=500247349]

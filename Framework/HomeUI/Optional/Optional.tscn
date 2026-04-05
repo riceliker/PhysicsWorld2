@@ -172,8 +172,4 @@ offset_bottom = 160.0
 
 [node name="HeadRow" parent="." unique_id=158803232 instance=ExtResource("5_546uq")]
 layout_mode = 1
-offset_left = -5.0
-offset_top = -1.0
-offset_right = -5.0
-offset_bottom = -1.0
 title_text = "Optional"

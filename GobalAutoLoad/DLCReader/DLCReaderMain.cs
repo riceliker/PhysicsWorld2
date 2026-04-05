@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public partial class DLCReaderMain : Node
 {
 	private static List<DLCInfoPack> DLC_data = new List<DLCInfoPack>();
-	private struct DLCInfoPack
+	public struct DLCInfoPack
 	{
 		public DLCInfoPack(string name, string path)
 		{
@@ -16,7 +16,7 @@ public partial class DLCReaderMain : Node
 		public bool is_able = true;
 	}
 
-	private static List<DLCInfoPack> getDLCData()
+	public static List<DLCInfoPack> getDLCData()
 	{
 		return DLC_data;
 	}

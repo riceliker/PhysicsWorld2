@@ -50,7 +50,7 @@ public partial class GetDLCFromRes : Node
 	{
 		foreach (string DLC_name in dlc_need_load_list)
 		{
-			string DLC_res_path = DLC_RES_PATH_HEAD + DLC_name;
+			string DLC_res_path = DLC_RES_PATH_HEAD + DLC_name + "/";
 			bool is_this_DLC_have = DirAccess.DirExistsAbsolute(DLC_res_path);
 			if (!is_this_DLC_have)
 			{

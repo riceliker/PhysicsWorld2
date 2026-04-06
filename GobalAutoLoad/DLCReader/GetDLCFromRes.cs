@@ -2,6 +2,11 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+/*
+	This class only one function:
+	1. Get DLC from DLC local;
+*/
+
 public partial class GetDLCFromRes : Node
 {
 	const string DLC_RES_PATH_HEAD = "res://DLCLocal/";
@@ -15,7 +20,6 @@ public partial class GetDLCFromRes : Node
 		getWhatDLCWillLoad();
 		getDLCPathFromRes();
 	}
-
 	private void getWhatDLCWillLoad()
 	{
 		if (!FileAccess.FileExists(DLC_NEED_LOAD_PATH))
@@ -60,7 +64,7 @@ public partial class GetDLCFromRes : Node
 			{
 				dlc_name_which_load_successful.Add(DLC_name);
 				dlc_path_list.Add(DLC_res_path);
-				GD.Print("Log->DLCReader: The path of DLC: "+ DLC_name +" was got successful.");
+				GD.Print("Log->DLCReader: The path of DLC: "+ DLC_name +" was got successful in " + DLC_res_path + ".");
 			}
 		}
 	}

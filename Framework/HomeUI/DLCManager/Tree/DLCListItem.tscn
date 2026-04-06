@@ -5,7 +5,7 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bmd7c"]
 
-[node name="DlcList" type="Control" unique_id=364121030 node_paths=PackedStringArray("button", "icon", "name", "version", "is_able")]
+[node name="DLCListItem" type="Control" unique_id=364121030 node_paths=PackedStringArray("button", "icon", "name", "version", "is_able")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

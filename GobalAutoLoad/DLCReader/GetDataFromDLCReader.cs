@@ -51,4 +51,5 @@ public static partial class GetDataFromDLCReader
 		Godot.Collections.Array version_list = root["DLC_Version"].AsGodotArray();
 		return ((int) version_list[0]).ToString() + "," + ((int) version_list[1]).ToString() + "," + ((int) version_list[2]).ToString();
 	}
+	
 }

@@ -19,6 +19,6 @@ public partial class HeadRow : Control
 
 	private void to_Main_Menu()
 	{
-		GetTree().ChangeSceneToFile("res://Framework/HomeUI/MainMenu/MainMenu.tscn");
+		GetTree().ChangeSceneToFile("res://Framework/HomeMenu/MainMenu/MainMenu.tscn");
 	}
 }

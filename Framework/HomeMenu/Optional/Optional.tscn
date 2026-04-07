@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dwhhqtw2r5nal"]
 
-[ext_resource type="Script" uid="uid://cs6loudxkpuxd" path="res://Framework/HomeUI/Optional/Script/SwitchClass.cs" id="2_546uq"]
+[ext_resource type="Script" uid="uid://cs6loudxkpuxd" path="res://Framework/HomeMenu/Optional/Script/SwitchClass.cs" id="2_546uq"]
 [ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_w21ue"]
-[ext_resource type="Script" uid="uid://5yp4u1ksxw6m" path="res://Framework/HomeUI/Optional/Script/Language.cs" id="3_chx5b"]
-[ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/HomeUI/Template/HeadRow/HeadRow.tscn" id="5_546uq"]
-[ext_resource type="Script" uid="uid://b4yqmduelwq33" path="res://Framework/HomeUI/Optional/Script/WindowsModel.cs" id="5_eo4vw"]
+[ext_resource type="Script" uid="uid://5yp4u1ksxw6m" path="res://Framework/HomeMenu/Optional/Script/Language.cs" id="3_chx5b"]
+[ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/HomeMenu/Template/HeadRow/HeadRow.tscn" id="5_546uq"]
+[ext_resource type="Script" uid="uid://b4yqmduelwq33" path="res://Framework/HomeMenu/Optional/Script/WindowsModel.cs" id="5_eo4vw"]
 
 [node name="Optional" type="Control" unique_id=1180624508]
 layout_mode = 3

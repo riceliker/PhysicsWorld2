@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://8jmfb66a4rv"]
 
-[ext_resource type="Script" uid="uid://rwf3670bjufr" path="res://Framework/HomeUI/DLCManager/Script/DLCManager.cs" id="1_chx5e"]
-[ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/HomeUI/Template/HeadRow/HeadRow.tscn" id="2_chx5e"]
-[ext_resource type="PackedScene" uid="uid://sh0hmapdb8cx" path="res://Framework/HomeUI/DLCManager/Tree/DLCListItem.tscn" id="3_chx5e"]
-[ext_resource type="Script" uid="uid://c7pcohky2viq0" path="res://Framework/HomeUI/DLCManager/Script/Description.cs" id="4_5pe8g"]
+[ext_resource type="Script" uid="uid://rwf3670bjufr" path="res://Framework/HomeMenu/DLCManager/Script/DLCManager.cs" id="1_chx5e"]
+[ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/HomeMenu/Template/HeadRow/HeadRow.tscn" id="2_chx5e"]
+[ext_resource type="PackedScene" uid="uid://sh0hmapdb8cx" path="res://Framework/HomeMenu/DLCManager/Tree/DLCListItem.tscn" id="3_chx5e"]
+[ext_resource type="Script" uid="uid://c7pcohky2viq0" path="res://Framework/HomeMenu/DLCManager/Script/Description.cs" id="4_5pe8g"]
 [ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="4_gxv2o"]
-[ext_resource type="Script" uid="uid://dxntrqgm4r5e5" path="res://Framework/HomeUI/DLCManager/Script/ShowInclude.cs" id="6_danhn"]
-[ext_resource type="Script" uid="uid://marxuial0lm4" path="res://Framework/HomeUI/DLCManager/Script/Able.cs" id="7_4gwif"]
+[ext_resource type="Script" uid="uid://dxntrqgm4r5e5" path="res://Framework/HomeMenu/DLCManager/Script/ShowInclude.cs" id="6_danhn"]
+[ext_resource type="Script" uid="uid://marxuial0lm4" path="res://Framework/HomeMenu/DLCManager/Script/Able.cs" id="7_4gwif"]
 
 [node name="DLCManager" type="Control" unique_id=352480533 node_paths=PackedStringArray("control")]
 layout_mode = 3

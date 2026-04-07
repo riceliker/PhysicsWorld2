@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://if7csspnq4kk"]
 
 [ext_resource type="FontFile" uid="uid://dmt33ho8dvgvl" path="res://Assets/font/Robtronika.ttf" id="1_0to6o"]
-[ext_resource type="Script" uid="uid://dwtfqidlw4vsp" path="res://Framework/HomeUI/Template/HeadRow/Script/HeadRow.cs" id="1_1boj8"]
+[ext_resource type="Script" uid="uid://dwtfqidlw4vsp" path="res://Framework/HomeMenu/Template/HeadRow/Script/HeadRow.cs" id="1_1boj8"]
 
 [node name="HeadRow" type="Control" unique_id=158803232 node_paths=PackedStringArray("title_label", "back_button")]
 layout_mode = 3

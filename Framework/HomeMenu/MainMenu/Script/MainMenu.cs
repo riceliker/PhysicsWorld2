@@ -30,12 +30,12 @@ public partial class MainMenu: Control
 
 	private void onOptionalButtonClicked()
 	{
-		GetTree().ChangeSceneToFile("res://Framework/HomeUI/Optional/Optional.tscn");
+		GetTree().ChangeSceneToFile("res://Framework/HomeMenu/Optional/Optional.tscn");
 	}
 
 	private void onDLCManagerButtonClicked()
 	{
-		GetTree().ChangeSceneToFile("res://Framework/HomeUI/DLCManager/DLCManager.tscn");
+		GetTree().ChangeSceneToFile("res://Framework/HomeMenu/DLCManager/DLCManager.tscn");
 	}
 
 	private void quitGame()

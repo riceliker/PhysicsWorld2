@@ -1,6 +1,8 @@
 using Godot;
+using Godot.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
 /*
 	Get DLC information from DLCReader, And display it from DLC_data
@@ -10,37 +12,44 @@ public partial class DLCManager : Control
 	[Export] private Control control;
 	[Export] private PackedScene DLC_list_item;
 	private static int show_what_by_id = 0;
-	private List<DLCListItem> _itemList = new List<DLCListItem>();
+	private Godot.Collections.Dictionary<string, DLCListItem> _itemList = new Godot.Collections.Dictionary<string, DLCListItem>();
 
 	public override void _Ready()
 	{
-		List<DLCReaderMain.DLCInfoPack> DLC_data = DLCReaderMain.getDLCData();
-		for (int j = 0; j < DLC_data.Count; j++)
+		GD.Print("TSCN:DLCManger");
+		int count = 0;
+		foreach (string name in DLCInformationPackageFactory.DLC_Dictionary.Keys)
 		{
-			DLCReaderMain.DLCInfoPack i = DLC_data[j];
+			DLCInformationPackageFactory.DLCInformationPackage i = DLCInformationPackageFactory.getInformationPackageByName(name);
 			DLCListItem item_node = DLC_list_item.Instantiate<DLCListItem>();
 			item_node.setInformation(i);
-			item_node.Position = new Vector2(0, 180 * j);
-
+			item_node.Position = new Vector2(0, 180 * count);
+			count++;
+			// Get Signal: DLCListItem -> DLCManager : Clicked DLC button to description the DLC.
 			item_node.OnDLCListItemButtonClicked += onDLCItemClicked;
 			
 			control.AddChild(item_node);
-			_itemList.Add(item_node);
+			_itemList.Add(i.name ,item_node);
 		}
-		int totalHeight = 180 * DLC_data.Count;
+		int totalHeight = 180 * count;
 		control.CustomMinimumSize = new Vector2(control.Size.X, totalHeight);
 	}
-	public void OnAbleButtonClicked(int temp_id)
+	public void OnAbleButtonClicked(string name)
     {
-		DLCListItem target = _itemList[temp_id];
-		target.switchAble();
+		if (_itemList.TryGetValue(name, out var p_target))
+		{
+			DLCListItem target = p_target;
+			target.switchAble();
+		}
+			
     }
 	
-	private void onDLCItemClicked(int temp_id)
+	private void onDLCItemClicked(string name)
 	{
 		Description description_script = GetNode<Description>("Description");
-		description_script.getShowWhatDLCId(temp_id);
+		description_script.getShowWhatDLCName(name);
 		Able able_script = GetNode<Able>("Able");
-		able_script.setTempId(temp_id);
+		// Sent Signal: DLCManager -> Able: Switch DLC is able.
+		able_script.setTempName(name);
 	}
 }

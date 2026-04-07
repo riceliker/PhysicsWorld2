@@ -5,7 +5,7 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bmd7c"]
 
-[node name="DLCListItem" type="Control" unique_id=364121030 node_paths=PackedStringArray("button", "icon", "name", "version", "is_able")]
+[node name="DLCListItem" type="Control" unique_id=364121030 node_paths=PackedStringArray("button", "icon", "name", "version", "show_able")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ button = NodePath("Button")
 icon = NodePath("Button/Icon")
 name = NodePath("Button/Name")
 version = NodePath("Button/Version")
-is_able = NodePath("Button/IsAble")
+show_able = NodePath("Button/IsAble")
 
 [node name="Button" type="Button" parent="." unique_id=578275346]
 layout_mode = 0

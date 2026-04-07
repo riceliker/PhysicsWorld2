@@ -4,34 +4,32 @@ using System.Text.Json;
 
 public partial class Description : Control
 {
-	[Export] private Label name;
+	[Export] private Label DLC_name;
 	[Export] private Label version;
 	[Export] private Label author;
 	[Export] private TextEdit information;
-	private int temp_id = 0;
-	private DLCReaderMain.DLCInfoPack info_pack;
+	private string show_DLC_name;
 	private ShowInclude show_include;
 	public void render()
 	{
-		info_pack = GetDataFromDLCReader.getInfoPackById(temp_id);
-		renderText();
-		renderInclude();
+		DLCInformationPackageFactory.DLCInformationPackage info_pack = DLCInformationPackageFactory.getInformationPackageByName(show_DLC_name);
+		renderText(info_pack);
+		renderInclude(info_pack);
 	}
-	private void renderText()
+	private void renderText(DLCInformationPackageFactory.DLCInformationPackage info_pack)
 	{
-		name.Text = info_pack.name;
-		version.Text = "Version: " + GetDataFromDLCReader.getVersionStringByInfoPack(info_pack);
-		Json json = GetDataFromDLCReader.getManifestByInfoPack(info_pack);
-		Godot.Collections.Dictionary root = json.Data.AsGodotDictionary();
+		GD.Print($"Show DLC({info_pack.name}) information");
+		DLC_name.Text = info_pack.name;
+		Godot.Collections.Dictionary root = DLCInformationPackageFactory.getManifestByInfoPack(info_pack);
+		version.Text = "Version: " + setVersion(root);
 		Godot.Collections.Dictionary DLC_information = root["DLC_Information"].AsGodotDictionary();
 		author.Text = "Author: " + DLC_information["author"].AsString();
 		information.Text = DLC_information["description"].AsString();
 	}
-	private void renderInclude()
+	private void renderInclude(DLCInformationPackageFactory.DLCInformationPackage info_pack)
 	{
 		ShowInclude show_include = GetNode<ShowInclude>("ShowInclude");
-		Json json = GetDataFromDLCReader.getManifestByInfoPack(info_pack);
-		Godot.Collections.Dictionary root = json.Data.AsGodotDictionary();
+		Godot.Collections.Dictionary root = DLCInformationPackageFactory.getManifestByInfoPack(info_pack);
 		Godot.Collections.Array<string> registry_list = root["Registry"].AsGodotArray<string>();
 		bool[] light_list = {false, false, false, false};
 		foreach (string i in registry_list)
@@ -54,15 +52,20 @@ public partial class Description : Control
 		}
 		show_include.SetWhatButtonWillLight(light_list);
 	}
-	public void getShowWhatDLCId(int temp_id)
+	private string setVersion(Godot.Collections.Dictionary root)
 	{
-		this.temp_id = temp_id;
+		Godot.Collections.Array version_list = root["DLC_Version"].AsGodotArray();
+		return ((int) version_list[0]).ToString() + "," + ((int) version_list[1]).ToString() + "," + ((int) version_list[2]).ToString();
+	}
+	public void getShowWhatDLCName(string name)
+	{
+		
+		show_DLC_name = name;
 		render();
 	}
 	public override void _Ready()
 	{
 		show_include = GetNode<ShowInclude>("ShowInclude");
-		render();;
 		
 	}	
 }

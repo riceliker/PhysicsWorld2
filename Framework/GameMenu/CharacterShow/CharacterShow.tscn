@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bijfdbkwtq0hx"]
+
+[ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/Template/HeadRow/HeadRow.tscn" id="1_56b7e"]
+[ext_resource type="Script" uid="uid://chjnvssmcd22s" path="res://Framework/GameMenu/CharacterShow/Script/CharacterShow.cs" id="1_iehkr"]
+[ext_resource type="PackedScene" uid="uid://dnoneh73vyvdx" path="res://Framework/GameMenu/CharacterShow/CharacterItem/CharacterItem.tscn" id="2_ygl6f"]
+
+[node name="CharacterShow" type="Control" unique_id=1720320700 node_paths=PackedStringArray("character_list_control")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iehkr")
+character_item_scene = ExtResource("2_ygl6f")
+character_list_control = NodePath("ScrollContainer/CharacterList")
+
+[node name="HeadRow" parent="." unique_id=158803232 instance=ExtResource("1_56b7e")]
+layout_mode = 0
+title_text = "Character"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1910736063]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 540.0
+offset_bottom = 1080.0
+
+[node name="CharacterList" type="Control" parent="ScrollContainer" unique_id=1349096294]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CharacterItem" parent="ScrollContainer/CharacterList" unique_id=1239826756 instance=ExtResource("2_ygl6f")]
+visible = false
+layout_mode = 1

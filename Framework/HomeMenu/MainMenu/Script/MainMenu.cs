@@ -25,7 +25,7 @@ public partial class MainMenu: Control
 
 	private void onBattleModeButtonClicked()
 	{
-		
+		GetTree().ChangeSceneToFile("res://Framework/GameMenu/CharacterShow/CharacterShow.tscn");
 	}
 
 	private void onOptionalButtonClicked()

@@ -11,7 +11,6 @@ public partial class DLCManager : Control
 {
 	[Export] private Control control;
 	[Export] private PackedScene DLC_list_item;
-	private static int show_what_by_id = 0;
 	private Godot.Collections.Dictionary<string, DLCListItem> _itemList = new Godot.Collections.Dictionary<string, DLCListItem>();
 
 	public override void _Ready()

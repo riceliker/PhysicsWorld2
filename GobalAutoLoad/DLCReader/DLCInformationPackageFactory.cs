@@ -17,7 +17,7 @@ public static partial class DLCInformationPackageFactory
 	{
 		if (string.IsNullOrEmpty(name)) 
     	{
-        GD.PushWarning("GetDataFromDLCReader->getInformationPackageByName: NULL NAME");
+        GD.PrintErr("GetDataFromDLCReader->getInformationPackageByName: NULL NAME");
         return Empty;
     	}
 		if (name == "_First")
@@ -28,7 +28,7 @@ public static partial class DLCInformationPackageFactory
 		{
 			return information_package;
 		}
-		GD.PushWarning("GetDataFromDLCReader->getInformationPackageByName: Not find this Name(" + name + ")!");
+		GD.PrintErr("GetDataFromDLCReader->getInformationPackageByName: Not find this Name(" + name + ")!");
 		return Empty;
 	}
 	public static void addInformationPackage(DLCInformationPackage info_pack)

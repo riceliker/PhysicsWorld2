@@ -12,9 +12,12 @@ public partial class DLCReaderMain : Node
 	public override void _Ready()
 	{
 		GD.Print("DLCReader: Start Loading.");
-		var loader = new GetDLCByLoadPath();
-		loader.StartLoad("res://DLCLocal");
+		var DLC_loader = new GetDLCByLoadPath();
+		DLC_loader.StartLoad("res://DLCLocal");
 		GD.Print("DLCReader: All DLC has been read.");
+		var character_loader = new CharacterReaderMain();
+		character_loader.loadCharacterByDLCInformationPackage();
+		
 	}
 	
 }

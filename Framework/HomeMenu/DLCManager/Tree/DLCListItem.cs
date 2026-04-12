@@ -4,13 +4,13 @@ using System.Dynamic;
 
 public partial class DLCListItem : Control
 {
-	[Signal] public delegate void OnDLCListItemButtonClickedEventHandler(string name);
+	[Signal] public delegate void OnDLCListItemButtonClickedEventHandler(string full_name);
 	[Export] private Button button;
 	[Export] private TextureRect icon;
 	[Export] private Label name;
 	[Export] private Label version;
 	[Export] private TextureRect show_able;
-	private DLCInformationPackageFactory.DLCInformationPackage local_info_pack;
+	private DLCInformation info;
 	private bool is_able_bool = true;
 	private Texture2D unable;
 	private Texture2D able;
@@ -20,45 +20,42 @@ public partial class DLCListItem : Control
 	{
 		CustomMinimumSize = new Vector2(640, 160);
 
+
+		init_able();
+
+		// Sent Signal: DLCListItem -> DLCManager: Clicked DLC button to description the DLC.
+		button.Pressed += () => {
+			EmitSignal(SignalName.OnDLCListItemButtonClicked, info.getUniqueID().getFullName());
+			
+		};
+	}
+	public void init_able()
+	{
 		Image img_R = Image.CreateEmpty(64, 64, false, Image.Format.Rgba8);
 		img_R.Fill(Colors.Red);
 		unable = ImageTexture.CreateFromImage(img_R);
 		Image img_G = Image.CreateEmpty(64, 64, false, Image.Format.Rgba8);
 		img_G.Fill(Colors.Green);
 		able = ImageTexture.CreateFromImage(img_G);
-
-		// Sent Signal: DLCListItem -> DLCManager: Clicked DLC button to description the DLC.
-		button.Pressed += () => {
-			EmitSignal(SignalName.OnDLCListItemButtonClicked, local_info_pack.name);
-			
-		};
 	}
-	public void setInformation(DLCInformationPackageFactory.DLCInformationPackage info_pack)
+	public void setInformation(DLCInformation info)
 	{
-		local_info_pack = info_pack;
+		this.info = info;
 
-		name.Text = info_pack.name;
-
-		Godot.Collections.Dictionary manifest = DLCInformationPackageFactory.getManifestByInfoPack(info_pack);
+		Godot.Collections.Dictionary manifest = info.getManifest();
+		name.Text = setText(manifest);
 		version.Text = setVersion(manifest);
-		
-		icon.Texture = setImageTexture(info_pack);
+		icon.Texture = info.getIcon();
 	}
 	private string setVersion(Godot.Collections.Dictionary root)
 	{
 		Godot.Collections.Array version_list = root["DLC_Version"].AsGodotArray();
 		return ((int) version_list[0]).ToString() + "," + ((int) version_list[1]).ToString() + "," + ((int) version_list[2]).ToString();
 	}
-	private ImageTexture setImageTexture(DLCInformationPackageFactory.DLCInformationPackage info_pack)
+	private string setText(Godot.Collections.Dictionary root)
 	{
-		string icon_path = info_pack.path.PathJoin("icon.png");
-		Image image_icon = Image.CreateEmpty(1, 1, false, Image.Format.Rgba8);
-		if (image_icon.Load(icon_path) != Error.Ok)
-		{
-			GD.Print("Error->DLC: The icon image in DLC(" + info_pack.name + ") was lost!");
-		}
-		image_icon.Resize(160, 160, Image.Interpolation.Bilinear);
-		return ImageTexture.CreateFromImage(image_icon);
+		string text = root["DLC_Name"].AsString();
+		return text;
 	}
 	public override void _Process(double delta)
 	{
@@ -75,5 +72,7 @@ public partial class DLCListItem : Control
 	public void switchAble()
 	{
 		is_able_bool = ! is_able_bool;
+		info.setAble(is_able_bool);
+		DataManager.setInformation(info.getUniqueID(), info);
 	}
 }

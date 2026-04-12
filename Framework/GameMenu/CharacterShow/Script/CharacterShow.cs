@@ -9,10 +9,13 @@ public partial class CharacterShow : Control
 	{
 		GD.Print("TSCN:CharacterShow");
 		int count = 0;
-		foreach (string name in CharacterInformationFactory.character_list.Keys)
+		foreach (DataUniqueID id in DataManager.getListButReadOnly<CharacterInformation>().Keys)
 		{
-			GD.Print($"CharacterShow: Get character information of {name} from {CharacterInformationFactory.character_list[name].path}.");
-			CharacterInformationFactory.CharacterInformation i = CharacterInformationFactory.character_list[name];
+			CharacterInformation i = DataManager.getInformation<CharacterInformation>(id);
+
+			// DLC is able?
+			if (! DataManager.getInformation<DLCInformation>(i.parent_id).getIsAble()) continue;
+
 			CharacterItem item_node = character_item_scene.Instantiate<CharacterItem>();
 			item_node.setInformation(i);
 			int col = count % 3;

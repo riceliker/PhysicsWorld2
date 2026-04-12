@@ -8,14 +8,14 @@ public partial class CharacterItem : Control
 	[Export] private Button button;
 	[Export] private Label label;
 	[Export] private TextureRect texture_rect;
-	private string character_name;
+	private DataUniqueID character_id;
 	
 
-	public void setInformation(CharacterInformationFactory.CharacterInformation character)
+	public void setInformation(CharacterInformation character)
 	{
-		character_name = character.name;
-		label.Text = character.name;
-		texture_rect.Texture = character.description.portrait;
+		character_id = character.getUniqueID();
+		label.Text = character.description.name;
+		texture_rect.Texture = character.getIcon();
 		SetLabelBackground(label, getBackgroundColorByCharacterType(character.description.type));
 	}
 	private Color getBackgroundColorByCharacterType(string type)
@@ -46,7 +46,7 @@ public partial class CharacterItem : Control
 	{
 		// Sent Signal: CharacterListItem -> CharacterShow: Clicked character button to description the character.
 		button.Pressed += () => {
-			EmitSignal(SignalName.OnCharacterListItemButtonClicked, character_name);
+			EmitSignal(SignalName.OnCharacterListItemButtonClicked, character_id.getFullName());
 		};
 		
 	}

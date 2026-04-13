@@ -12,6 +12,7 @@ public class GameInformation
 	protected Texture2D icon;
 	protected int icon_size;
 	protected Godot.Collections.Dictionary manifest;
+	protected DataUniqueID dlc_id;
 	public GameInformation(DataUniqueID id, string path, int icon_size)
 	{
 		this.id = id;
@@ -44,6 +45,14 @@ public class GameInformation
 	public Godot.Collections.Dictionary getManifest()
 	{
 		return this.manifest;
+	}
+	public DataUniqueID getDLCID()
+	{
+		return this.dlc_id;
+	}
+	public void setDLCID(DataUniqueID dlc_id)
+	{
+		this.dlc_id = dlc_id;
 	}
 	protected void setManifest()
 	{

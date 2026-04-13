@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://rvbb4qwh01uc"]
+
+[ext_resource type="Script" uid="uid://bk5ks4fv5ondy" path="res://Framework/RootMenu/Battle/Group/CharacterList/CharacterItem/CharacterItem.cs" id="1_gff5s"]
+[ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="3_7tad6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_voqp4"]
+bg_color = Color(0, 0.5019608, 0.5019608, 0.9411765)
+
+[node name="CharacterItem" type="Control" unique_id=1239826756 node_paths=PackedStringArray("button", "label", "texture_rect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gff5s")
+button = NodePath("Button")
+label = NodePath("Button/Label")
+texture_rect = NodePath("Button/HeadIcon")
+
+[node name="Button" type="Button" parent="." unique_id=1374149088]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0
+
+[node name="HeadIcon" type="TextureRect" parent="Button" unique_id=91414023]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+scale = Vector2(0.156, 0.156)
+
+[node name="Label" type="Label" parent="Button" unique_id=842338584]
+layout_mode = 0
+offset_top = 136.0
+offset_right = 160.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_7tad6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_voqp4")
+text = "Name"
+horizontal_alignment = 1

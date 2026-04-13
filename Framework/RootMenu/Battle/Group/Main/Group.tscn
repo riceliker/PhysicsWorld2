@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bfnl5ewee0acx"]
+
+[ext_resource type="PackedScene" uid="uid://5ea7dg4gmviy" path="res://Framework/Template/HeadRowBack/HeadRowBack.tscn" id="1_fk2gw"]
+
+[node name="Group" type="Control" unique_id=160090700]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeadRowBack" parent="." unique_id=1357069392 instance=ExtResource("1_fk2gw")]
+layout_mode = 1
+title = "Group"

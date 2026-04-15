@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://cs6loudxkpuxd" path="res://Framework/RootMenu/Optional/Script/SwitchClass.cs" id="2_546uq"]
 [ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_w21ue"]
 [ext_resource type="Script" uid="uid://5yp4u1ksxw6m" path="res://Framework/RootMenu/Optional/Script/Language.cs" id="3_chx5b"]
+[ext_resource type="Script" uid="uid://b4yqmduelwq33" path="res://Framework/RootMenu/Optional/Script/Windows/WindowsOption.cs" id="4_fc63i"]
 [ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/Template/HeadRowHome/HeadRowHome.tscn" id="5_546uq"]
-[ext_resource type="Script" uid="uid://b4yqmduelwq33" path="res://Framework/RootMenu/Optional/Script/WindowsModel.cs" id="5_eo4vw"]
-[ext_resource type="PackedScene" uid="uid://d32anltgrkibf" path="res://Framework/RootMenu/MainMenu/MainMenu.tscn" id="6_4q0i6"]
+[ext_resource type="Theme" uid="uid://bk5fdcub3rp73" path="res://Assets/theme/OptionButton.theme" id="5_b5fvo"]
 
 [node name="Optional" type="Control" unique_id=1180624508]
 layout_mode = 3
@@ -114,39 +114,61 @@ switch_on_hover = true
 script = ExtResource("3_chx5b")
 menu_button = NodePath(".")
 
-[node name="Windows" type="Control" parent="." unique_id=1837673609]
-visible = false
+[node name="Windows" type="Control" parent="." unique_id=1837673609 node_paths=PackedStringArray("window_model")]
 anchors_preset = 0
 offset_left = 480.0
 offset_top = 160.0
 offset_right = 480.0
 offset_bottom = 160.0
+script = ExtResource("4_fc63i")
+window_model = NodePath("WindowModel/OptionButton")
 
-[node name="SwitchClass" type="Control" parent="Windows" unique_id=1297838297]
+[node name="WindowModel" type="Control" parent="Windows" unique_id=1297838297]
 anchors_preset = 0
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
 
-[node name="Label" type="Label" parent="Windows/SwitchClass" unique_id=1748448817]
+[node name="Label" type="Label" parent="Windows/WindowModel" unique_id=1748448817]
 layout_mode = 0
-offset_right = 499.0
-offset_bottom = 100.0
+offset_right = 512.0
+offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("2_w21ue")
-theme_override_font_sizes/font_size = 64
-text = "Windows Model"
+theme_override_font_sizes/font_size = 48
+text = "Window Model:"
 
-[node name="MenuButton" type="MenuButton" parent="Windows/SwitchClass" unique_id=815152444 node_paths=PackedStringArray("menu_button")]
+[node name="OptionButton" type="OptionButton" parent="Windows/WindowModel" unique_id=465441765]
 layout_mode = 0
-offset_right = 80.0
-offset_bottom = 25.0
-scale = Vector2(4, 4)
+offset_left = 420.0
+offset_right = 932.0
+offset_bottom = 64.0
+theme = ExtResource("5_b5fvo")
 theme_override_fonts/font = ExtResource("2_w21ue")
-theme_override_font_sizes/font_size = 64
-switch_on_hover = true
-script = ExtResource("5_eo4vw")
-menu_button = NodePath(".")
+theme_override_font_sizes/font_size = 48
+
+[node name="WindowResolution" type="Control" parent="Windows" unique_id=2097953359]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 128.0
+offset_right = 32.0
+offset_bottom = 128.0
+
+[node name="Label" type="Label" parent="Windows/WindowResolution" unique_id=1393351111]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 48
+text = "Window Resolution:"
+
+[node name="OptionButton" type="OptionButton" parent="Windows/WindowResolution" unique_id=190528265]
+layout_mode = 0
+offset_left = 540.0
+offset_right = 1052.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 48
 
 [node name="Input" type="Control" parent="." unique_id=1101755584]
 visible = false
@@ -174,4 +196,3 @@ offset_bottom = 160.0
 [node name="HeadRow" parent="." unique_id=158803232 instance=ExtResource("5_546uq")]
 layout_mode = 1
 title_text = "Optional"
-to_scene = ExtResource("6_4q0i6")

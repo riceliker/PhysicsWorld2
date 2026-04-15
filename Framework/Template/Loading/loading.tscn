@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://br2yrf2ux0xok"]
+
+[ext_resource type="Script" uid="uid://donfnf7mxm55x" path="res://Framework/Template/Loading/Loading.cs" id="1_k6wkh"]
+[ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_wqi7f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqi7f"]
+bg_color = Color(0.8352941, 0.827451, 0.007843138, 1)
+
+[node name="Loading" type="Control" unique_id=742597526 node_paths=PackedStringArray("loading_label", "tips_label", "loading_progress_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k6wkh")
+loading_label = NodePath("LoadingLabel")
+tips_label = NodePath("tip")
+loading_progress_bar = NodePath("ProgressBar")
+
+[node name="LoadingLabel" type="Label" parent="." unique_id=2126038989]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 664.0
+offset_right = 543.0
+offset_bottom = 792.0
+theme_override_fonts/font = ExtResource("2_wqi7f")
+theme_override_font_sizes/font_size = 96
+text = "Loading"
+
+[node name="tip" type="Label" parent="." unique_id=1669893844]
+layout_mode = 0
+offset_top = 792.0
+offset_right = 1920.0
+offset_bottom = 920.0
+theme_override_fonts/font = ExtResource("2_wqi7f")
+theme_override_font_sizes/font_size = 48
+text = "Tips: "
+autowrap_mode = 3
+
+[node name="infomation" type="Label" parent="." unique_id=501642718]
+layout_mode = 0
+offset_top = 920.0
+offset_right = 1905.0
+offset_bottom = 1043.0
+theme_override_fonts/font = ExtResource("2_wqi7f")
+theme_override_font_sizes/font_size = 48
+text = "Information:
+"
+autowrap_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=27459627]
+layout_mode = 0
+offset_top = 1048.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_wqi7f")
+step = 1.0
+value = 29.0

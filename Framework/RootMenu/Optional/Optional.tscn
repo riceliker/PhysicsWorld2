@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b4yqmduelwq33" path="res://Framework/RootMenu/Optional/Script/Windows/WindowsOption.cs" id="4_fc63i"]
 [ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/Template/HeadRowHome/HeadRowHome.tscn" id="5_546uq"]
 [ext_resource type="Theme" uid="uid://bk5fdcub3rp73" path="res://Assets/theme/OptionButton.theme" id="5_b5fvo"]
+[ext_resource type="Script" uid="uid://c21elxqditfl5" path="res://Framework/RootMenu/Optional/Script/Debug/DLCSafe.cs" id="6_1nvih"]
 
 [node name="Optional" type="Control" unique_id=1180624508]
 layout_mode = 3
@@ -115,6 +116,7 @@ script = ExtResource("3_chx5b")
 menu_button = NodePath(".")
 
 [node name="Windows" type="Control" parent="." unique_id=1837673609 node_paths=PackedStringArray("window_model")]
+visible = false
 anchors_preset = 0
 offset_left = 480.0
 offset_top = 160.0
@@ -192,6 +194,31 @@ offset_left = 480.0
 offset_top = 160.0
 offset_right = 480.0
 offset_bottom = 160.0
+
+[node name="DLCSafe" type="Control" parent="Debug" unique_id=688577068 node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("6_1nvih")
+button = NodePath("Button")
+
+[node name="Label" type="Label" parent="Debug/DLCSafe" unique_id=650133093]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 48
+text = "SafeGDScript Only"
+
+[node name="Button" type="Button" parent="Debug/DLCSafe" unique_id=1937115026]
+layout_mode = 0
+offset_left = 512.0
+offset_right = 768.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+text = "Able"
 
 [node name="HeadRow" parent="." unique_id=158803232 instance=ExtResource("5_546uq")]
 layout_mode = 1

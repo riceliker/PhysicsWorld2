@@ -22,15 +22,19 @@ public partial class CharacterList : Control
 			item_node.Position = new Vector2(col * 180 + 20 , 180 * row + 20);
 			count++;
 			// Get Signal: CharacterListItem -> CharacterShow : Clicked character button to description the character.
-			item_node.OnCharacterListItemButtonClicked += onCharacterListItemButtonClicked;
+			item_node.OnListItemButtonClicked += onCharacterListItemButtonClicked;
 			
 			character_list_control.AddChild(item_node);
 		}
 	}
-	private void onCharacterListItemButtonClicked(string name)
+	private void onCharacterListItemButtonClicked(int num, string name)
 	{
-		CharacterDescription description_script = GetNode<CharacterDescription>("CharacterDescription");
-		description_script.setCharacterDescription(DataUniqueID.fullNameToUniqueID(name));
+		DataUniqueID.DataUniqueIDEnum type = (DataUniqueID.DataUniqueIDEnum) num;
+		if (type == DataUniqueID.DataUniqueIDEnum.Character)
+		{
+			CharacterDescription description_script = GetNode<CharacterDescription>("CharacterDescription");
+			description_script.setCharacterDescription(DataUniqueID.fullNameToUniqueID(name));
+		}
 	}
 
 }

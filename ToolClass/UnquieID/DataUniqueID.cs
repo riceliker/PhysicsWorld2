@@ -21,6 +21,7 @@ public partial class DataUniqueID
 	{
 		DLC, 
 		Character,
+		Weapon,
 		Item,
 		Map
 	}

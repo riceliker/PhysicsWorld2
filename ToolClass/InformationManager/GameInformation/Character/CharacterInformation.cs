@@ -65,29 +65,5 @@ public partial class CharacterInformation : GameInformation
 		}
 		GD.Print($"CharacterInformation: Successfully set character information of {this.description.name} from {this.path}.");
 	}
-	private T checkedTheKeyIsInDictionary<T>(Godot.Collections.Dictionary dict, string key, string character_path)
-	{
-		if (dict.TryGetValue(key, out var value))
-		{
-			try
-			{
-				if (typeof(T) == typeof(string))
-					return (T)(object)value.AsString();
-
-				if (typeof(T) == typeof(int))
-					return (T)(object)value.AsInt32();
-
-				if (typeof(T) == typeof(float))
-					return (T)(object)value.AsSingle();
-			}
-			catch
-			{
-				GD.PrintErr($"CharacterInformation: The key word `{key}` in character information from {character_path} has an invalid type!");
-				return default(T);
-			}
-		} 
-		GD.PrintErr($"CharacterInformation: The key word `{key}` in character information from {character_path} was not found!");
-		return default(T);
-		
-	}
+	
 }

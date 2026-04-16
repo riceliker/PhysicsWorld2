@@ -7,6 +7,7 @@ public partial class GetDataByDLCList
 	public GetDataByDLCList()
 	{
 		GetCharacterByDLCList character = new GetCharacterByDLCList();
+		character.
 		LoadingProcess.setInformationToProcess($"The character({character.getCharacterCount()}) was load.");
 	}
 	public class GetCharacterByDLCList : AbstractGetDataFromDLCList<CharacterInformation>

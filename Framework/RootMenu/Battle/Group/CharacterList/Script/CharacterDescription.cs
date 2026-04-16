@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class CharacterDescription : Control
+public partial class CharacterDescription : ListItemDescription
 {
 	[Signal] public delegate void OnChooseCharacterButtonClickedEventHandler(string full_name);
 	[Export] private Label name;
@@ -12,7 +12,7 @@ public partial class CharacterDescription : Control
 	[Export] private Label ultimate_skill;
 	[Export] private TextEdit description;
 	[Export] private Button choose_button;
-	public void setCharacterDescription(DataUniqueID id)
+	public override void setCharacterDescription(DataUniqueID id)
 	{
 		CharacterInformation info = DataManager.getInformation<CharacterInformation>(id);
 		name.Text = info.description.name;

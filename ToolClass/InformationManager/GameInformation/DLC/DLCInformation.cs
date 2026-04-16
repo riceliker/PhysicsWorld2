@@ -9,7 +9,7 @@ using Godot;
 public partial class DLCInformation : GameInformation
 {
 	private bool DLC_is_Able;
-	public DLCInformation(DataUniqueID id, string path) : base(id, path, 160)
+	public DLCInformation(DataUniqueID id, string path) : base(id, path, 160, id)
 	{
 		this.DLC_is_Able = true;
 		if (this.manifest.TryGetValue("DLC_Name", out var full_name))

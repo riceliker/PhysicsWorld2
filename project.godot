@@ -29,6 +29,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="physics-world"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_sandbox/plugin.cfg")
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://Assets/lang/zh_CN.po")

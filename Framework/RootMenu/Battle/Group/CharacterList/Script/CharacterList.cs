@@ -1,40 +1,14 @@
 using Godot;
 using System;
 
-public partial class CharacterList : Control
+public partial class CharacterList : DataList<CharacterInformation, CharacterItem, CharacterDescription>
 {
-	[Export] private PackedScene character_item_scene;
-	[Export] private Control character_list_control;
-	public override void _Ready()
+	public override CharacterItem listContainerVerb(CharacterItem item_node, int count)
 	{
-		int count = 0;
-		foreach (DataUniqueID id in DataManager.getListButReadOnly<CharacterInformation>().Keys)
-		{
-			CharacterInformation i = DataManager.getInformation<CharacterInformation>(id);
-
-			// DLC is able?
-			if (! DataManager.getInformation<DLCInformation>(i.parent_id).getIsAble()) continue;
-
-			CharacterItem item_node = character_item_scene.Instantiate<CharacterItem>();
-			item_node.setInformation(i);
-			int col = count % 3;
-			int row = count / 3;
-			item_node.Position = new Vector2(col * 180 + 20 , 180 * row + 20);
-			count++;
-			// Get Signal: CharacterListItem -> CharacterShow : Clicked character button to description the character.
-			item_node.OnListItemButtonClicked += onCharacterListItemButtonClicked;
-			
-			character_list_control.AddChild(item_node);
-		}
-	}
-	private void onCharacterListItemButtonClicked(int num, string name)
-	{
-		DataUniqueID.DataUniqueIDEnum type = (DataUniqueID.DataUniqueIDEnum) num;
-		if (type == DataUniqueID.DataUniqueIDEnum.Character)
-		{
-			CharacterDescription description_script = GetNode<CharacterDescription>("CharacterDescription");
-			description_script.setCharacterDescription(DataUniqueID.fullNameToUniqueID(name));
-		}
+		int col = count % 3;
+		int row = count / 3;
+		item_node.Position = new Vector2(col * 180 + 20 , 180 * row + 20);
+		return item_node;
 	}
 
 }

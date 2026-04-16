@@ -13,14 +13,14 @@ public class GameInformation
 	protected int icon_size;
 	protected Godot.Collections.Dictionary manifest;
 	protected DataUniqueID dlc_id;
-	public GameInformation(DataUniqueID id, string path, int icon_size)
+	public GameInformation(DataUniqueID id, string path, int icon_size, DataUniqueID dlc_id)
 	{
 		this.id = id;
 		this.path = path;
 		this.icon_size = icon_size;
 		setManifest();
 		setIcon();
-
+		this.dlc_id = dlc_id;
 	}
 	public DataUniqueID getUniqueID()
 	{

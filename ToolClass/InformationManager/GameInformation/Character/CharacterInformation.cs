@@ -30,9 +30,8 @@ public partial class CharacterInformation : GameInformation
 	public CharacterDescription description;
 	public DataUniqueID parent_id;
 
-	public CharacterInformation(DataUniqueID id, string path, DataUniqueID parent_id) : base(id, path, 160)
+	public CharacterInformation(DataUniqueID id, string path, DataUniqueID parent_id) : base(id, path, 160, parent_id)
 	{
-		this.parent_id = parent_id;
 		
 		Godot.Collections.Dictionary char_Dictionary = getManifest();
 

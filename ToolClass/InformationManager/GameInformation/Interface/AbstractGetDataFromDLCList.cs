@@ -4,17 +4,16 @@ using System.Threading;
 
 public abstract class AbstractGetDataFromDLCList<T> where T : GameInformation
 {
-	private string data_type;
 	private string folder_path;
-	private int character_count;
-	public AbstractGetDataFromDLCList()
-	{
-		this.data_type = getType();
+	private int count;
 	
+	public void startGet(DataUniqueID.DataUniqueIDEnum type)
+	{
+		string data_type = type.ToString();
+
 		foreach (DataUniqueID DLC in DataManager.getListButReadOnly<DLCInformation>().Keys)
 		{
 			this.folder_path = DataManager.getInformation<DLCInformation>(DLC).getPath().PathJoin(data_type);
-			GD.Print($"GetDataFromDLC{data_type}: Start loading from path {folder_path}");
 			// The folder is EMPTY?
 			using DirAccess dir = DirAccess.Open(this.folder_path);
 			if (dir == null)
@@ -31,22 +30,18 @@ public abstract class AbstractGetDataFromDLCList<T> where T : GameInformation
 					continue;
 				if (dir.CurrentIsDir())
 				{
-					GD.Print($"Get{this.data_type}FromDLC: The DLC({file_name} in {this.folder_path.PathJoin(file_name)} was found)");
-					DataUniqueID id = new DataUniqueID(DLC.getDLCName(), DataUniqueID.DataUniqueIDEnum.DLC, file_name);
+					DataUniqueID id = new DataUniqueID(DLC.getDLCName(), type, file_name);
 					T info = getBasicDataToInit(id, this.folder_path.PathJoin(file_name), DLC);
 					DataManager.addInformation(info);
-					character_count++;
+					count++;
+					GD.Print($"Get{data_type}FromDLC: loading character:{id.getFullName()}");
 				}
 				
 			}
 			dir.ListDirEnd();
-			GD.Print($"Get{this.data_type}FromDLC: All  loading was finished");
+			GD.Print($"Get{data_type}FromDLC: All {data_type}(number: {count}) loading was finished");
+			LoadingProcess.setInformationToProcess($"The {data_type}({count}): was load.");
 		}
 	}
-	public int getCharacterCount()
-	{
-		return character_count;
-	}
 	public abstract T getBasicDataToInit(DataUniqueID id, string folder_path, DataUniqueID parent_id );
-	public abstract string getType();
 }

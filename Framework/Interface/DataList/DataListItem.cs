@@ -1,5 +1,10 @@
-using System.Net.NetworkInformation;
 using Godot;
+
+/*
+	This class is the base of DataItem in Data Show.
+	If you want to use it: Extend it.
+    If you want to change the layout OR add more thing in item, please override the method `setInformationCanOverride()`.
+*/
 
 public partial class DataListItem<T> : Control
 where T : GameInformation
@@ -14,7 +19,8 @@ where T : GameInformation
         texture_rect.Texture = info.getIcon();
         setInformationCanOverride(info);
         button.Pressed += () => {
-			EmitSignal(SignalName.OnListItemButtonClicked, (int) DataUniqueID.DataUniqueIDEnum.Character , item_id.getFullName());
+            /// Signal: XXXListItem -> XXXList <see cref="DataList.cs" />
+			EmitSignal(SignalName.OnListItemButtonClicked, (int) item_id.getTypeName() , item_id.getFullName());
 		};
     }
     public virtual void setInformationCanOverride(T info)

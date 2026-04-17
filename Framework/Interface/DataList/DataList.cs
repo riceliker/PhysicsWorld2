@@ -1,6 +1,15 @@
 using Godot;
-using System;
-using System.Reflection.Metadata.Ecma335;
+
+/*
+	This class is the base of DataList in Data Show.
+	If you want to use it: Extend it and add method `_Ready()`
+	```
+	public override void _Ready()
+    {
+        startList(DataUniqueID.DataUniqueIDEnum.WHAT_YOU_WANT_TYPE, "YOU_TYPE_Description");
+    }
+	```
+*/
 
 public abstract partial class DataList<T, U, V> : Control
 where T : GameInformation
@@ -25,7 +34,7 @@ where V : ListItemDescription
 			item_node.setInformation(i);
 			item_node = listContainerVerb(item_node, count);
 			count++;
-			// Get Signal: CharacterListItem -> CharacterShow : Clicked character button to description the character.
+			/// Get Signal: XXXListItem -> XXXList <see cref="DataListItem.cs" />
 			item_node.OnListItemButtonClicked += onListItemButtonClicked;
 			
 			list_container.AddChild(item_node);

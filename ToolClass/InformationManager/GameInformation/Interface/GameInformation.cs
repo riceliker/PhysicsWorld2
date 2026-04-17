@@ -1,4 +1,5 @@
 using Godot;
+using System;
 /*
 	The parent class of all information classes in the InformationManager. 
 	It contains the basic information of a game element, such as its unique ID, its path in the file system, and its icon.
@@ -75,7 +76,6 @@ public class GameInformation
 			else
 			{
 				Godot.Collections.Dictionary manifest = manifest_json.Data.AsGodotDictionary();
-				GD.Print($"DLCReader: Get DLC({this.id.getFullName()}) was successful!");
 				this.manifest = manifest;
 			}
 		}
@@ -100,7 +100,7 @@ public class GameInformation
 			this.icon = ImageTexture.CreateFromImage(errorImage);
 		}
 	}
-	public static T checkedTheKeyIsInDictionary<T>(Godot.Collections.Dictionary dict, string key, string character_path)
+	public static T findValueByKeyDictionary<T>(Godot.Collections.Dictionary dict, string key, string path)
 	{
 		if (dict.TryGetValue(key, out var value))
 		{
@@ -117,12 +117,22 @@ public class GameInformation
 			}
 			catch
 			{
-				GD.PrintErr($"CharacterInformation: The key word `{key}` in character information from {character_path} has an invalid type!");
+				GD.PrintErr($"CharacterInformation: The key word `{key}` in information from {path} has an invalid type!");
 				return default(T);
 			}
 		} 
-		GD.PrintErr($"CharacterInformation: The key word `{key}` in character information from {character_path} was not found!");
+		GD.PrintErr($"CharacterInformation: The key word `{key}` in information from {path} was not found!");
 		return default(T);
 		
 	}
+	public static T StringToEnum<T>(string name, string path) where T : struct, Enum
+    {
+        if(Enum.TryParse<T>(name, out var result))
+			return result;
+		else
+		{	
+			GD.PrintErr($"CharacterInformation: The key word `{name}` in Enum from {path} was not found!");
+			return default;
+		}
+    }
 }

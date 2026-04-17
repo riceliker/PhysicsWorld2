@@ -1,62 +1,68 @@
 
 
+using Godot;
+
 public partial class WeaponInformation
 {
-	public class WeaponType
+	public enum WeaponBaseEnum
 	{
-		public const WeaponGunEnum WeaponGun = new WeaponGunEnum();
-		public const WeaponCloseEnum WeaponClose = new WeaponCloseEnum();
-		public enum WeaponGunEnum
-		{
-			StandardGun,
-			ShotGun,
-			HowitzerGun
-		}
-		public enum WeaponCloseEnum
-		{
-			SwordData,
-			AxeData,
-			SpearData
-		}
+		WeaponGumEnum,
+		WeaponCloseEnum
 	}
-	public class WeaponBaseData
+	public enum WeaponGunEnum
 	{
-		public int break_time;
+		StandardGun,
+		ShotGun,
+		HowitzerGun
+	}
+	public enum WeaponCloseEnum
+	{
+		Sword,
+		Axe,
+		Spear
+	}
+	public class WeaponBase
+	{
+		public float break_time;
 		public int range;
-		public float attack_speed;
-		public int bullet_damage;
+		public int damage;
 
 	}
-	public class StandardGunData : WeaponBaseData
+	public class WeaponGun : WeaponBase
 	{
 		public float bullet_speed;
+		public Texture2D bullet_image;
+	}
+	public class StandardGun : WeaponGun
+	{
 	}
 
-	public class ShotgunData : StandardGunData
+	public class Shotgun : WeaponGun
 	{
 		public int pellets_line_number;
 		public int pellets_number_on_line;
 		public int pellets_degree;
 	}
 
-	public class HowitzerData : StandardGunData
+	public class Howitzer : WeaponGun
 	{
+		
 		public float radius;
 		public float duration;
 	}
-	public class CloseData : WeaponBaseData
+	public class WeaponClose : WeaponBase
 	{
 		
 	}
-	public class SwordData : CloseData
+	public class SwordData : WeaponClose
 	{
 		
 	}
-	public class AxeData : CloseData
+	public class AxeData : WeaponClose
 	{
 		
 	}
-	public class SpearData : CloseData
+	public class SpearData : WeaponClose
 	{
 		
 	}

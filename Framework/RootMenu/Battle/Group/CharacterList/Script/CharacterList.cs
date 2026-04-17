@@ -1,5 +1,5 @@
 using Godot;
-using System;
+
 
 public partial class CharacterList : DataList<CharacterInformation, CharacterItem, CharacterDescription>
 {
@@ -10,5 +10,9 @@ public partial class CharacterList : DataList<CharacterInformation, CharacterIte
 		item_node.Position = new Vector2(col * 180 + 20 , 180 * row + 20);
 		return item_node;
 	}
+    public override void _Ready()
+    {
+        startList(DataUniqueID.DataUniqueIDEnum.Character, "CharacterDescription");
+    }
 
 }

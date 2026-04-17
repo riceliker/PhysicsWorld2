@@ -1,5 +1,7 @@
 using Godot;
 
+
+
 public partial class CharacterItem : DataListItem<CharacterInformation>
 {
 	[Export] private Label label;

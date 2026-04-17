@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="4_huete"]
 [ext_resource type="Script" uid="uid://biqs4rbtd3aqi" path="res://Framework/RootMenu/Battle/Group/CharacterList/Script/CharacterDescription.cs" id="4_mdyuu"]
 
-[node name="CharacterList" type="Control" unique_id=1720320700 node_paths=PackedStringArray("character_list_control")]
+[node name="CharacterList" type="Control" unique_id=1720320700 node_paths=PackedStringArray("list_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,8 +14,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mdyuu")
-character_item_scene = ExtResource("3_03o2j")
-character_list_control = NodePath("ScrollContainer/CharacterList")
+item_scene = ExtResource("3_03o2j")
+list_container = NodePath("ScrollContainer/ListContainer")
 
 [node name="HeadRowBack" parent="." unique_id=1357069392 instance=ExtResource("3_mdyuu")]
 layout_mode = 1
@@ -27,12 +27,12 @@ offset_top = 160.0
 offset_right = 540.0
 offset_bottom = 1080.0
 
-[node name="CharacterList" type="Control" parent="ScrollContainer" unique_id=1349096294]
+[node name="ListContainer" type="Control" parent="ScrollContainer" unique_id=1349096294]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CharacterItem" parent="ScrollContainer/CharacterList" unique_id=1239826756 instance=ExtResource("3_03o2j")]
+[node name="CharacterItem" parent="ScrollContainer/ListContainer" unique_id=1239826756 instance=ExtResource("3_03o2j")]
 visible = false
 layout_mode = 1
 script = null

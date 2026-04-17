@@ -44,7 +44,6 @@ public static class DataManager
 		if (!Storage<T>.list.ContainsKey(information.getUniqueID()))
 		{
 			Storage<T>.list.Add(information.getUniqueID(), information);
-			GD.Print($"DataManager: Add information({information.getUniqueID().getFullName()}) to DataManager.");
 		}
 	}
 }

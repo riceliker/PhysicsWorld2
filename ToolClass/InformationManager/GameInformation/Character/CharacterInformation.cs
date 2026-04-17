@@ -38,11 +38,11 @@ public partial class CharacterInformation : GameInformation
 		if (char_Dictionary.TryGetValue("Description", out var temp_description_var))
 		{
 			Godot.Collections.Dictionary description = temp_description_var.AsGodotDictionary();
-			this.description.name = checkedTheKeyIsInDictionary<string>(description, "Full_Name", this.path);
-			this.description.type = checkedTheKeyIsInDictionary<string>(description, "Type", this.path);
-			this.description.description = checkedTheKeyIsInDictionary<string>(description, "Description", this.path);
-			this.description.skill_name = checkedTheKeyIsInDictionary<string>(description, "Skill_Name", this.path);
-			this.description.ultimate_skill_name = checkedTheKeyIsInDictionary<string>(description, "Ultimate_Skill_Name", this.path);
+			this.description.name = findValueByKeyDictionary<string>(description, "Full_Name", this.path);
+			this.description.type = findValueByKeyDictionary<string>(description, "Type", this.path);
+			this.description.description = findValueByKeyDictionary<string>(description, "Description", this.path);
+			this.description.skill_name = findValueByKeyDictionary<string>(description, "Skill_Name", this.path);
+			this.description.ultimate_skill_name = findValueByKeyDictionary<string>(description, "Ultimate_Skill_Name", this.path);
 
 		}
 		else 
@@ -54,15 +54,15 @@ public partial class CharacterInformation : GameInformation
 		{
 			Godot.Collections.Dictionary character_information = ci.AsGodotDictionary();
 
-			this.basic.HP = checkedTheKeyIsInDictionary<int>(character_information, "HP", this.path);
-			this.basic.Speed = checkedTheKeyIsInDictionary<float>(character_information, "Speed", this.path);
+			this.basic.HP = findValueByKeyDictionary<int>(character_information, "HP", this.path);
+			this.basic.Speed = findValueByKeyDictionary<float>(character_information, "Speed", this.path);
 			
 		}
 		else 
 		{
 			GD.PrintErr($"CharacterInformation: The key word `Character_Information` in character information from {this.path} was not found!");
 		}
-		GD.Print($"CharacterInformation: Successfully set character information of {this.description.name} from {this.path}.");
+
 	}
 	
 }

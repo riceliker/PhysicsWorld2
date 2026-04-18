@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cy36avqgmndht"]
+
+[ext_resource type="Script" uid="uid://diags1bnqtj37" path="res://Framework/RootMenu/Battle/Group/WeaponList/WeaponItem/WeaponItem.cs" id="1_0r1d7"]
+
+[node name="WeaponItem" type="Control" unique_id=392141690]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0r1d7")
+
+[node name="Button" type="Button" parent="." unique_id=1571307392]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0
+
+[node name="TextureButton" type="TextureButton" parent="Button" unique_id=68747393]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0

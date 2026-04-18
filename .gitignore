@@ -1,0 +1,7 @@
+# Godot 4+ specific ignores
+.DS_store/
+.godot/
+addons/
+.vscode/
+/android/
+DLCLocal/PhysicsWorld2Main

@@ -1,0 +1,65 @@
+# LANGUAGE translation for physics-world-2 for the following files:
+# res://Framework/HomeUI/MainMenu/MainMenu.tscn
+# res://Framework/HomeUI/Optional/Optional.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: physics-world-2\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: Framework/HomeUI/MainMenu/MainMenu.tscn
+msgid "PHYSICS WORLD 2"
+msgstr ""
+
+#: Framework/HomeUI/MainMenu/MainMenu.tscn
+msgid "Story Mode"
+msgstr ""
+
+#: Framework/HomeUI/MainMenu/MainMenu.tscn
+msgid "Battle Mode"
+msgstr ""
+
+#: Framework/HomeUI/MainMenu/MainMenu.tscn
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Optional"
+msgstr ""
+
+#: Framework/HomeUI/MainMenu/MainMenu.tscn
+msgid "DLC Manager"
+msgstr ""
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "General"
+msgstr ""
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Windows"
+msgstr ""
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Input"
+msgstr ""
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Voice"
+msgstr ""
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Debug"
+msgstr ""
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Lanuage:"
+msgstr ""
+
+#: Framework/HomeUI/Optional/Optional.tscn
+msgid "Windows Model"
+msgstr ""
+
+msgid "physics-world-2"
+msgstr ""

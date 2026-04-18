@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dwi3jwpbil200"]
+
+[ext_resource type="PackedScene" uid="uid://5ea7dg4gmviy" path="res://Framework/Template/HeadRowBack/HeadRowBack.tscn" id="1_82if2"]
+
+[node name="WeaponList" type="Control" unique_id=1960622239]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeadRowBack" parent="." unique_id=1357069392 instance=ExtResource("1_82if2")]
+layout_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=322930861]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ListContainer" type="Control" parent="ScrollContainer" unique_id=251886644]
+layout_mode = 2

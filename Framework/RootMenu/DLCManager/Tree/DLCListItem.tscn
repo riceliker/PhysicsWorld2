@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://sh0hmapdb8cx"]
+
+[ext_resource type="Script" uid="uid://645or80efn5r" path="res://Framework/RootMenu/DLCManager/Tree/DLCListItem.cs" id="1_hesgo"]
+[ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_853n6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bmd7c"]
+
+[node name="DLCListItem" type="Control" unique_id=364121030 node_paths=PackedStringArray("button", "icon", "name", "version", "show_able")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -920.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hesgo")
+button = NodePath("Button")
+icon = NodePath("Button/Icon")
+name = NodePath("Button/Name")
+version = NodePath("Button/Version")
+show_able = NodePath("Button/IsAble")
+
+[node name="Button" type="Button" parent="." unique_id=578275346]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 160.0
+
+[node name="Icon" type="TextureRect" parent="Button" unique_id=1960046063]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0
+
+[node name="Name" type="Label" parent="Button" unique_id=789419422]
+layout_mode = 0
+offset_left = 160.0
+offset_right = 640.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("2_853n6")
+theme_override_font_sizes/font_size = 32
+
+[node name="Version" type="Label" parent="Button" unique_id=1158758523]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 80.0
+offset_right = 560.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("2_853n6")
+theme_override_font_sizes/font_size = 32
+
+[node name="IsAble" type="TextureRect" parent="Button" unique_id=1913940083]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 80.0
+offset_right = 640.0
+offset_bottom = 160.0
+texture = SubResource("CanvasTexture_bmd7c")

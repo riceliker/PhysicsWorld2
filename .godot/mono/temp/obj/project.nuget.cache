@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "zEoZVUHRniE=",
+  "success": true,
+  "projectFilePath": "/Users/riceliker/Documents/Godot Projects/PhysicsWorld/PhysicsWorldFramework/physics-world.csproj",
+  "expectedPackageFiles": [
+    "/Users/riceliker/.nuget/packages/godot.sourcegenerators/4.6.2/godot.sourcegenerators.4.6.2.nupkg.sha512",
+    "/Users/riceliker/.nuget/packages/godotsharp/4.6.2/godotsharp.4.6.2.nupkg.sha512",
+    "/Users/riceliker/.nuget/packages/godotsharpeditor/4.6.2/godotsharpeditor.4.6.2.nupkg.sha512",
+    "/Users/riceliker/.nuget/packages/microsoft.netcore.app.ref/8.0.16/microsoft.netcore.app.ref.8.0.16.nupkg.sha512",
+    "/Users/riceliker/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.16/microsoft.aspnetcore.app.ref.8.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

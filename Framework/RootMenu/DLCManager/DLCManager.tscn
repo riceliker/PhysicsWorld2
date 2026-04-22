@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://if7csspnq4kk" path="res://Framework/Template/HeadRowHome/HeadRowHome.tscn" id="2_chx5e"]
 [ext_resource type="PackedScene" uid="uid://sh0hmapdb8cx" path="res://Framework/RootMenu/DLCManager/Tree/DLCListItem.tscn" id="3_chx5e"]
 [ext_resource type="Script" uid="uid://c7pcohky2viq0" path="res://Framework/RootMenu/DLCManager/Script/DLCDescription.cs" id="4_5pe8g"]
-[ext_resource type="PackedScene" uid="uid://d32anltgrkibf" path="res://Framework/RootMenu/MainMenu/MainMenu.tscn" id="4_a62ay"]
 [ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="4_gxv2o"]
 [ext_resource type="Script" uid="uid://dxntrqgm4r5e5" path="res://Framework/RootMenu/DLCManager/Script/ShowInclude.cs" id="6_danhn"]
 [ext_resource type="Script" uid="uid://marxuial0lm4" path="res://Framework/RootMenu/DLCManager/Script/Able.cs" id="7_4gwif"]
@@ -23,7 +22,6 @@ DLC_list_item = ExtResource("3_chx5e")
 [node name="HeadRow" parent="." unique_id=158803232 instance=ExtResource("2_chx5e")]
 layout_mode = 0
 title_text = "DLC Manager"
-to_scene = ExtResource("4_a62ay")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1021984774]
 layout_mode = 0
@@ -93,7 +91,7 @@ theme_override_fonts/font = ExtResource("4_gxv2o")
 theme_override_font_sizes/font_size = 32
 text = "Author"
 
-[node name="ShowInclude" type="Control" parent="Description" unique_id=1538733195 node_paths=PackedStringArray("story_button", "map_button", "character_button", "item_button")]
+[node name="ShowInclude" type="Control" parent="Description" unique_id=1538733195 node_paths=PackedStringArray("story_button", "map_button", "character_button", "item_button", "weapon_button")]
 anchors_preset = 0
 offset_left = 200.0
 offset_top = 140.0
@@ -104,6 +102,7 @@ story_button = NodePath("Story")
 map_button = NodePath("BattleMap")
 character_button = NodePath("Character")
 item_button = NodePath("Item")
+weapon_button = NodePath("Weapon")
 
 [node name="Story" type="CheckBox" parent="Description/ShowInclude" unique_id=1968549299]
 layout_mode = 0
@@ -124,21 +123,33 @@ text = "Battle Map"
 
 [node name="Character" type="CheckBox" parent="Description/ShowInclude" unique_id=1286369121]
 layout_mode = 0
-offset_left = 450.0
-offset_right = 610.0
-offset_bottom = 40.0
+offset_left = 415.0
+offset_top = 1.0
+offset_right = 616.0
+offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("4_gxv2o")
 theme_override_font_sizes/font_size = 32
 text = "Character"
 
 [node name="Item" type="CheckBox" parent="Description/ShowInclude" unique_id=1254758230]
 layout_mode = 0
-offset_left = 720.0
-offset_right = 880.0
-offset_bottom = 40.0
+offset_left = 631.0
+offset_top = 2.0
+offset_right = 791.0
+offset_bottom = 51.0
 theme_override_fonts/font = ExtResource("4_gxv2o")
 theme_override_font_sizes/font_size = 32
 text = "Item"
+
+[node name="Weapon" type="CheckBox" parent="Description/ShowInclude" unique_id=631379933]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 3.0
+offset_right = 912.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("4_gxv2o")
+theme_override_font_sizes/font_size = 32
+text = "Weapon"
 
 [node name="Information" type="TextEdit" parent="Description" unique_id=1753864972]
 layout_mode = 0

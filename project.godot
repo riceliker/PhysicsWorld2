@@ -12,6 +12,8 @@ config_version=5
 
 config/name="physics-world-2"
 run/main_scene="uid://q12rae6atnmw"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="../UserData"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -31,7 +33,7 @@ project/assembly_name="physics-world"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/free_map/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/free_map/plugin.cfg", "res://addons/vrm/plugin.cfg")
 
 [internationalization]
 

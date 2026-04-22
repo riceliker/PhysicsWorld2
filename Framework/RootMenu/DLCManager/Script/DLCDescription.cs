@@ -30,7 +30,7 @@ public partial class DLCDescription : Control
 	private void renderInclude()
 	{
 		ShowInclude show_include = GetNode<ShowInclude>("ShowInclude");
-		bool[] light_list = {false, false, false, false};
+		bool[] light_list = {false, false, false, false, false};
 		if (DataManager.isContain<DLCInformation>(id))
 		{
 			Godot.Collections.Dictionary root = DataManager.getInformation<DLCInformation>(id).getManifest();
@@ -51,6 +51,9 @@ public partial class DLCDescription : Control
 					case "Item":
 						light_list[3] = true;
 						break;	
+					case "Weapon":
+						light_list[4] = true;
+						break;
 				}
 			}
 		}

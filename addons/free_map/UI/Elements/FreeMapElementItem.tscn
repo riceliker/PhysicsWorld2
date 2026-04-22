@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b6nl7nxxa1lug"]
+
+[ext_resource type="Script" uid="uid://g7xunjuxc3px" path="res://addons/free_map/UI/Elements/FreeMapElementItem.cs" id="1_itc0v"]
+
+[node name="FreeMapElementItem" type="Control" unique_id=1122816883 node_paths=PackedStringArray("button", "label", "texture_rect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1792.0
+offset_bottom = -952.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_itc0v")
+button = NodePath("Button")
+label = NodePath("Button/Name")
+texture_rect = NodePath("Button/Image")
+
+[node name="Button" type="Button" parent="." unique_id=1164837961]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="Image" type="TextureRect" parent="Button" unique_id=1152513210]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 96.0
+offset_bottom = 64.0
+
+[node name="Name" type="Label" parent="Button" unique_id=1140280711]
+layout_mode = 0
+offset_left = -35.0
+offset_top = 64.0
+offset_right = 160.0
+offset_bottom = 113.0
+autowrap_mode = 3

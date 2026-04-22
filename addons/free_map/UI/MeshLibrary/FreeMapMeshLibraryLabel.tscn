@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://r5m8s8p7gxoy"]
+
+[ext_resource type="Script" uid="uid://c2k7xtyshx5ei" path="res://addons/free_map/UI/MeshLibrary/FreeMapMeshLibraryLabel.cs" id="1_48485"]
+
+[node name="FreeMapMeshLibraryLabel" type="Control" unique_id=1293926726 node_paths=PackedStringArray("label", "switch_able", "show_able", "delete")]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1408.0
+offset_bottom = -952.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48485")
+label = NodePath("Button/Name")
+switch_able = NodePath("Button/Able")
+show_able = NodePath("Button/Able/ColorRect")
+delete = NodePath("Button/Delete")
+
+[node name="Button" type="Button" parent="." unique_id=1860114271]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+
+[node name="Name" type="Label" parent="Button" unique_id=748099804]
+z_index = 1
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 64.0
+
+[node name="Able" type="Button" parent="Button" unique_id=241352885]
+z_index = 2
+layout_mode = 0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 128.0
+text = "Switch Able"
+flat = true
+
+[node name="ColorRect" type="TextureRect" parent="Button/Able" unique_id=2090138067]
+z_index = -1
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 64.0
+
+[node name="Delete" type="Button" parent="Button" unique_id=1490676535]
+z_index = 2
+layout_mode = 0
+offset_left = 256.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 128.0
+text = "Delete"
+flat = true

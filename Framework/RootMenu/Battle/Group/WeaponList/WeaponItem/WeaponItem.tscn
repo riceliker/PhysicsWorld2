@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://diags1bnqtj37" path="res://Framework/RootMenu/Battle/Group/WeaponList/WeaponItem/WeaponItem.cs" id="1_0r1d7"]
 
-[node name="WeaponItem" type="Control" unique_id=392141690]
+[node name="WeaponItem" type="Control" unique_id=392141690 node_paths=PackedStringArray("button", "texture_rect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,13 +10,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0r1d7")
+button = NodePath("Button")
+texture_rect = NodePath("Button/TextureRect")
 
 [node name="Button" type="Button" parent="." unique_id=1571307392]
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 160.0
 
-[node name="TextureButton" type="TextureButton" parent="Button" unique_id=68747393]
+[node name="TextureRect" type="TextureRect" parent="Button" unique_id=301391207]
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 160.0

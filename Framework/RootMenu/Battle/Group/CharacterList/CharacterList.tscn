@@ -32,11 +32,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CharacterItem" parent="ScrollContainer/ListContainer" unique_id=1239826756 instance=ExtResource("3_03o2j")]
-visible = false
-layout_mode = 1
-script = null
-
 [node name="CharacterDescription" type="Control" parent="." unique_id=437331668 node_paths=PackedStringArray("name", "type", "hp", "speed", "skill", "ultimate_skill", "description", "choose_button")]
 anchors_preset = 0
 offset_left = 540.0

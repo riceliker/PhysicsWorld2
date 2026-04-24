@@ -1,15 +1,17 @@
 using Godot;
 using System;
 
-public partial class WeaponList : Node
+public partial class WeaponList : DataList<WeaponInformation, WeaponItem, WeaponDescription>
 {
-	// Called when the node enters the scene tree for the first time.
+    public override WeaponItem listContainerVerb(WeaponItem item_node, int count)
+    {
+        int col = count % 3;
+		int row = count / 3;
+		item_node.Position = new Vector2(col * 180 + 20 , 180 * row + 20);
+		return item_node;
+    }
 	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+    {
+        startList(DataUniqueID.DataUniqueIDEnum.Weapon, "WeaponDescription");
+    }
 }

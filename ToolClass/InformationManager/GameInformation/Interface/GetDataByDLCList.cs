@@ -9,6 +9,9 @@ public partial class GetDataByDLCList
 		GD.Print("===== Start Loading Character =====");
 		GetCharacterByDLCList character = new GetCharacterByDLCList();
 		character.startGet(DataUniqueID.DataUniqueIDEnum.Character);
+		GD.Print("===== Start Loading Weapon =====");
+		GetWeaponByDLCList weapon = new GetWeaponByDLCList();
+		weapon.startGet(DataUniqueID.DataUniqueIDEnum.Weapon);
 		
 	}
 	public class GetCharacterByDLCList : AbstractGetDataFromDLCList<CharacterInformation>
@@ -17,5 +20,12 @@ public partial class GetDataByDLCList
 		{
 			return new CharacterInformation(id, folder_path.PathJoin("Description"), parent_id);
 		}
+	}
+	public class GetWeaponByDLCList : AbstractGetDataFromDLCList<WeaponInformation>
+	{
+        public override WeaponInformation getBasicDataToInit(DataUniqueID id, string folder_path, DataUniqueID parent_id)
+        {
+            return new WeaponInformation(id, folder_path.PathJoin("Description"), parent_id);
+        }
 	}
 }

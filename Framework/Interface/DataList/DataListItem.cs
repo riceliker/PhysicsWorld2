@@ -10,8 +10,8 @@ public partial class DataListItem<T> : Control
 where T : GameInformation
 { 
     [Signal] public delegate void OnListItemButtonClickedEventHandler(int type, string name);
-    [Export] private Button button;
-    [Export] private TextureRect texture_rect;
+    [Export] public Button button;
+    [Export] public TextureRect texture_rect;
     private DataUniqueID item_id;
     public void setInformation(T info) 
     {

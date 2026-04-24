@@ -43,6 +43,10 @@ enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://a
 locale/translations=PackedStringArray("res://Assets/lang/zh_CN.po")
 locale/translations_pot_files=PackedStringArray("res://Framework/HomeMenu/Optional/Optional.tscn")
 
+[layer_names]
+
+3d_physics/layer_1="Ground"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

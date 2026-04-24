@@ -81,8 +81,8 @@ public class GameInformation
 	}
 	protected void setIcon()
 	{
+		
 		string icon_path = this.path.PathJoin("icon.png");
-
 		if (ResourceLoader.Exists(icon_path))
 		{
 			Texture2D loadedTex = ResourceLoader.Load<Texture2D>(icon_path);
@@ -93,7 +93,7 @@ public class GameInformation
 		}
 		else
 		{
-			GD.PrintErr($"Error->DLC: The icon image in DLC({this.id.getFullName()}) was lost!");
+			GD.PushWarning($"Error->DLC: The icon image in DLC({this.id.getFullName()}) was lost!");
 			Image errorImage = Image.CreateEmpty(icon_size, icon_size, false, Image.Format.Rgba8);
 			errorImage.Fill(new Color(0.6f, 0.2f, 0.8f));
 			this.icon = ImageTexture.CreateFromImage(errorImage);
@@ -116,11 +116,11 @@ public class GameInformation
 			}
 			catch
 			{
-				GD.PrintErr($"CharacterInformation: The key word `{key}` in information from {path} has an invalid type!");
+				GD.PushWarning($"GameInformation->Manifest.json: The key word `{key}` in information from {path} has an invalid type!");
 				return default(T);
 			}
 		} 
-		GD.PrintErr($"CharacterInformation: The key word `{key}` in information from {path} was not found!");
+		GD.PushWarning($"GameInformation->Manifest.json: The key word `{key}` in information from {path} was not found!");
 		return default(T);
 		
 	}
@@ -130,7 +130,7 @@ public class GameInformation
 			return result;
 		else
 		{	
-			GD.PrintErr($"CharacterInformation: The key word `{name}` in Enum from {path} was not found!");
+			GD.PushWarning($"GameInformation->Manifest.json: The key word `{name}` in Enum from {path} was not found!");
 			return default;
 		}
     }

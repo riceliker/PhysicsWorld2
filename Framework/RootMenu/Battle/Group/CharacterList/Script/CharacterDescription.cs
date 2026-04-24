@@ -22,7 +22,8 @@ public partial class CharacterDescription : ListItemDescription
 		skill.Text = "E-Skill: \n" + info.description.skill_name;
 		ultimate_skill.Text = "Q-Skill: \n" + info.description.ultimate_skill_name;
 		description.Text = info.description.description;
-		choose_button.Pressed += () => {
+		choose_button.Pressed += () => 
+		{
 			// Signal: CharacterShow -> Group: Clicked choose character button to start the game with the character.
 			EmitSignal(SignalName.OnChooseCharacterButtonClicked, id.getFullName());
 		};

@@ -9,14 +9,11 @@ public partial class WeaponInformation
 		WeaponGumEnum,
 		WeaponCloseEnum
 	}
-	public enum WeaponGunEnum
+	public enum WeaponTrueEnum
 	{
 		StandardGun,
 		ShotGun,
-		HowitzerGun
-	}
-	public enum WeaponCloseEnum
-	{
+		HowitzerGun,
 		Sword,
 		Axe,
 		Spear
@@ -31,7 +28,6 @@ public partial class WeaponInformation
 	public class WeaponGun : WeaponBase
 	{
 		public float bullet_speed;
-		public Texture2D bullet_image;
 	}
 	public class StandardGun : WeaponGun
 	{

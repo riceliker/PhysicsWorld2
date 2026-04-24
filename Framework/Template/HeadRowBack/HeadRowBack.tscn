@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5ea7dg4gmviy"]
 
 [ext_resource type="Script" uid="uid://cueoke5n37l1p" path="res://Framework/Template/HeadRowBack/HeadRowBack.cs" id="1_uc3vr"]
-[ext_resource type="FontFile" uid="uid://dmt33ho8dvgvl" path="res://Assets/font/Robtronika.ttf" id="2_wct3o"]
+[ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_uc3vr"]
 [ext_resource type="Texture2D" uid="uid://dhc5eabqwx264" path="res://Assets/logo/used/exitLeft.png" id="3_g2jyw"]
 
 [node name="HeadRowBack" type="Control" unique_id=1357069392 node_paths=PackedStringArray("back_button", "label")]
@@ -27,8 +27,9 @@ offset_left = 141.0
 offset_top = 9.0
 offset_right = 1918.0
 offset_bottom = 156.0
-theme_override_fonts/font = ExtResource("2_wct3o")
-theme_override_font_sizes/font_size = 128
+theme_override_fonts/font = ExtResource("2_uc3vr")
+theme_override_font_sizes/font_size = 64
+vertical_alignment = 1
 
 [node name="BackButton" type="TextureButton" parent="." unique_id=13775768]
 layout_mode = 0

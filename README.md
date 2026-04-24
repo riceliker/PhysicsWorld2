@@ -1,5 +1,5 @@
-# Physics World 2
-The Physics World 2 is a open source game and basic on the open source game engine: Godot Game Engine.
+# Physics World Framework
+The Physics World Framework is a open source game and basic on the open source game engine: Godot Game Engine.
 Not only the engine, And all assets were created by open source software, such as Blender, Krita etc.
 Everyone who come from any conutry also can help us to develop this project.
 If you are programer, illustrator, 3D artist, composer, translator, you can help us developing the game.
@@ -16,7 +16,7 @@ If this game support the DLC is best, But you need decompilation most of game.
 So that's why I need a try.
 
 ## The developing about this game
-The game type: RPG 2D Game & multiplayer skill flight, The Physic World **2** mean 2D, Although have Physics World 3.
+The game type: RPG 3D Game & multiplayer skill flight.
 If the story end, we will decide to make some offical DLC for this game rather than force update
 (critcize Minecraft: You must play the updated gameplay provided by the offical instead of rejecting this update, as this will affect furcture updates)
 Also the Physics World 3 will be start, But It is a hard work.
@@ -28,4 +28,3 @@ play this game is very easy.
 3. Open the Godot Engine, Add New Program, Chosie **project.godot**
 
 ## Other 
-

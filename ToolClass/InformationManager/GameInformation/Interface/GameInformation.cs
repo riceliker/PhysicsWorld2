@@ -1,10 +1,9 @@
 using Godot;
 using System;
-/*
-	The parent class of all information classes in the InformationManager. 
-	It contains the basic information of a game element, such as its unique ID, its path in the file system, and its icon.
-	Each subclass of GameInformation will implement the clone() method to return a new instance of itself with the same data.
-*/
+/// <Summary>
+///	The parent class of all information classes in the InformationManager. 
+///	It contains the basic information of a game element, such as its unique ID, its path in the file system, and its icon.
+/// </Summary>
 
 public class GameInformation 
 {

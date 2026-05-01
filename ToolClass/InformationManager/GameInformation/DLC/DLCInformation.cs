@@ -1,3 +1,4 @@
+using System;
 using Godot;
 /*
 	The DLCInformation class is a subclass of GameInformation that represents the information of a DLC in the InformationManager. 
@@ -31,5 +32,9 @@ public partial class DLCInformation : GameInformation
 	{
 		DLC_is_Able = is_able;
 	}
-	
+
+    public static implicit operator DLCInformation(PhysicsWorld.Src.DLCManager.DLCInformation v)
+    {
+        throw new NotImplementedException();
+    }
 }

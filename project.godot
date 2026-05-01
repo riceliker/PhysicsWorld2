@@ -23,6 +23,7 @@ config/windows_native_icon="uid://fme1yu3q8rkg"
 [autoload]
 
 FirstLoading="*uid://c0b5bc0rbuvxk"
+Interpreter="*uid://4375sh1qrxkb"
 
 [display]
 

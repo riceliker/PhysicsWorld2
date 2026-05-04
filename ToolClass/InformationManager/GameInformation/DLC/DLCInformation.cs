@@ -32,9 +32,4 @@ public partial class DLCInformation : GameInformation
 	{
 		DLC_is_Able = is_able;
 	}
-
-    public static implicit operator DLCInformation(PhysicsWorld.Src.DLCManager.DLCInformation v)
-    {
-        throw new NotImplementedException();
-    }
 }

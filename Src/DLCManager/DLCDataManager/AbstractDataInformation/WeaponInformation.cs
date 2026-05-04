@@ -12,13 +12,13 @@ namespace PhysicsWorld.Src.DLCManager.DLCDataManager
     public interface IWeaponAbstractDataInterface;
     public class WeaponBaseData
     {
-        public float break_time;
+        public int break_time;
 		public int range;
 		public int damage;
     }
-    public class WeaponBaseData<T> : WeaponBaseData where T : IWeaponAbstractDataInterface
+    public class WeaponBaseData<T> : WeaponBaseData where T : IWeaponAbstractDataInterface, new()
 	{
-        public T abstract_data;
+        public T abstract_data = new T();
 	}
     public class RangedData : IWeaponAbstractDataInterface
     {
@@ -29,29 +29,29 @@ namespace PhysicsWorld.Src.DLCManager.DLCDataManager
     /// </summary>
     public class WeaponInformation : DLCDataInformation
     {
-        public WeaponBaseType weapon_base_type {get;init;}
-        public WeaponBaseData weapon_base_data {get;init;}
+        public WeaponBaseType weapon_base_type = new WeaponBaseType();
+        public WeaponBaseData weapon_base_data = new WeaponBaseData();
         public string name {get;init;}
-        public WeaponInformation(DLCDataID id, string path) : base(id, path)
+        public WeaponInformation(DLCDataID id, string path) : base(id, path, "")
         {
-            string weapon_type_string = GetManifestValue<string>("Type");
-            this.name = GetManifestValue<string>("Name");
-            GetManifestArray("WeaponBase", (weapon_base_data) =>
+            string weapon_type_string = (this as IGetJsonData).getJsonValue<string>("Type");
+            this.name = (this as IGetJsonData).getJsonValue<string>("Name");
+            (this as IGetJsonData).getJsonObject("WeaponBase", (weapon_base_data) =>
             {
-                this.weapon_base_data.break_time = GetManifestValue<int>(weapon_base_data, "break_time");
-				this.weapon_base_data.range = GetManifestValue<int>(weapon_base_data, "range");
-				this.weapon_base_data.damage = GetManifestValue<int>(weapon_base_data, "damage");
+                this.weapon_base_data.break_time = (this as IGetJsonData).getJsonValue<int>(weapon_base_data, "break_time");
+				this.weapon_base_data.range = (this as IGetJsonData).getJsonValue<int>(weapon_base_data, "range");
+				this.weapon_base_data.damage = (this as IGetJsonData).getJsonValue<int>(weapon_base_data, "damage");
             });
 
-            switch(StringToEnum<WeaponBaseType>(weapon_type_string, id))
+            switch((this as IGetJsonData).getJsonEnum<WeaponBaseType>("Type"))
             {
                 case WeaponBaseType.Ranged:
                     this.weapon_base_data = new WeaponBaseData<RangedData>();
                     if (weapon_base_data is WeaponBaseData<RangedData> ranged)
                     {
-                        GetManifestArray("Ranged", (ranged_data) =>
+                        (this as IGetJsonData).getJsonObject("Ranged", (ranged_data) =>
                         {
-                            ranged.abstract_data.bullet_speed = GetManifestValue<float>(ranged_data, "bullet_speed");
+                            ranged.abstract_data.bullet_speed = (this as IGetJsonData).getJsonValue<float>(ranged_data, "bullet_speed");
                         });                       
                     }
                     break;

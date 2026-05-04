@@ -33,19 +33,19 @@ namespace PhysicsWorld.Src.DLCManager.DLCDataManager
             public string ultimate_skill_name;
         }
         public CharacterDescription description;
-        public CharacterInformation(DLCDataID id, string path) : base(id, path)
+        public CharacterInformation(DLCDataID id, string path) : base(id, path, "char")
         {   
-            GetManifestArray("Description", (description) => {
-                this.description.name = GetManifestValue<string>(description, "Full_Name");
-                this.description.type = GetManifestValue<string>(description, "Type");
-                this.description.description = GetManifestValue<string>(description, "Description");
-                this.description.skill_name = GetManifestValue<string>(description, "Skill_Name");
-                this.description.ultimate_skill_name = GetManifestValue<string>(description, "Ultimate_Skill_Name");
+            (this as IGetJsonData).getJsonObject("Description", (description) => {
+                this.description.name = (this as IGetJsonData).getJsonValue<string>(description, "Full_Name");
+                this.description.type = (this as IGetJsonData).getJsonValue<string>(description, "Type");
+                this.description.description = (this as IGetJsonData).getJsonValue<string>(description, "Description");
+                this.description.skill_name = (this as IGetJsonData).getJsonValue<string>(description, "Skill_Name");
+                this.description.ultimate_skill_name = (this as IGetJsonData).getJsonValue<string>(description, "Ultimate_Skill_Name");
             });
-            GetManifestArray("Character_Information", (character_information) =>
+            (this as IGetJsonData).getJsonObject("Character_Information", (character_information) =>
             {
-                this.basic.HP = GetManifestValue<float>(character_information, "HP");
-                this.basic.Speed = GetManifestValue<float>(character_information, "Speed");
+                this.basic.HP = (this as IGetJsonData).getJsonValue<float>(character_information, "HP");
+                this.basic.Speed = (this as IGetJsonData).getJsonValue<float>(character_information, "Speed");
             });
         }
     }

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwi3jwpbil200"]
 
-[ext_resource type="PackedScene" uid="uid://5ea7dg4gmviy" path="res://Framework/Template/HeadRowBack/HeadRowBack.tscn" id="1_82if2"]
+[ext_resource type="PackedScene" uid="uid://5ea7dg4gmviy" path="res://Page/Template/HeadRowBack/HeadRowBack.tscn" id="1_82if2"]
 [ext_resource type="Script" uid="uid://igwy6nmqdon6" path="res://Framework/RootMenu/Battle/Group/WeaponList/Script/WeaponList.cs" id="1_k1ygd"]
 [ext_resource type="PackedScene" uid="uid://cfja1g210n5v1" path="res://Framework/RootMenu/Battle/Group/GroupShow/GroupShow.tscn" id="3_kvjlo"]
 [ext_resource type="PackedScene" uid="uid://cy36avqgmndht" path="res://Framework/RootMenu/Battle/Group/WeaponList/WeaponItem/WeaponItem.tscn" id="3_s20un"]

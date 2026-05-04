@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chjnvssmcd22s" path="res://Framework/RootMenu/Battle/Group/CharacterList/Script/CharacterList.cs" id="1_mdyuu"]
 [ext_resource type="PackedScene" uid="uid://rvbb4qwh01uc" path="res://Framework/RootMenu/Battle/Group/CharacterList/CharacterItem/CharacterItem.tscn" id="3_03o2j"]
-[ext_resource type="PackedScene" uid="uid://5ea7dg4gmviy" path="res://Framework/Template/HeadRowBack/HeadRowBack.tscn" id="3_mdyuu"]
+[ext_resource type="PackedScene" uid="uid://5ea7dg4gmviy" path="res://Page/Template/HeadRowBack/HeadRowBack.tscn" id="3_mdyuu"]
 [ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="4_huete"]
 [ext_resource type="Script" uid="uid://biqs4rbtd3aqi" path="res://Framework/RootMenu/Battle/Group/CharacterList/Script/CharacterDescription.cs" id="4_mdyuu"]
 

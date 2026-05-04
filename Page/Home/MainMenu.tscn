@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://d32anltgrkibf"]
+
+[ext_resource type="Script" uid="uid://biofvap47nh4a" path="res://Page/Home/MainMenu.cs" id="1_lwrlv"]
+[ext_resource type="Texture2D" uid="uid://g2g26c0yxbna" path="res://Assets/ui/uilogo/Exit.png" id="2_07tko"]
+[ext_resource type="PackedScene" uid="uid://dwhhqtw2r5nal" path="res://Page/Setting/Optional/Optional.tscn" id="2_j7ly7"]
+[ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_lwrlv"]
+[ext_resource type="Texture2D" uid="uid://dcbudrjt72ald" path="res://Assets/logo/LinkLogo/github/GitHub.svg" id="3_5p6du"]
+[ext_resource type="Texture2D" uid="uid://cb6djauqa8dxc" path="res://Assets/ui/uilogo/Setting.png" id="3_m8gmx"]
+[ext_resource type="Texture2D" uid="uid://ddg0c61bcqrfs" path="res://Assets/ui/uilogo/DLC.png" id="4_5yssw"]
+
+[node name="MainMenu" type="Control" unique_id=543475209 node_paths=PackedStringArray("to_start_game", "to_optional_button", "to_DLC_manager_button", "quit_game_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lwrlv")
+to_start_game = NodePath("Button")
+to_optional_button = NodePath("Bottom/Setting")
+optional_button = ExtResource("2_j7ly7")
+to_DLC_manager_button = NodePath("Bottom/DLC")
+quit_game_button = NodePath("Bottom/Exit")
+
+[node name="Bottom" type="Control" parent="." unique_id=1279631174]
+anchors_preset = 0
+offset_top = 920.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Exit" type="Button" parent="Bottom" unique_id=484583005]
+layout_mode = 0
+offset_left = 1760.0
+offset_right = 1920.0
+offset_bottom = 160.0
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Bottom/Exit" unique_id=614321181]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 25.0
+offset_right = 121.0
+offset_bottom = 125.0
+texture = ExtResource("2_07tko")
+
+[node name="Setting" type="Button" parent="Bottom" unique_id=1242940014]
+layout_mode = 0
+offset_left = 1600.0
+offset_right = 1760.0
+offset_bottom = 160.0
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Bottom/Setting" unique_id=1769646051]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 31.0
+offset_right = 125.0
+offset_bottom = 131.0
+texture = ExtResource("3_m8gmx")
+
+[node name="DLC" type="Button" parent="Bottom" unique_id=1082232188]
+layout_mode = 0
+offset_left = 1440.0
+offset_right = 1600.0
+offset_bottom = 160.0
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Bottom/DLC" unique_id=1038005847]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 29.0
+offset_right = 126.0
+offset_bottom = 129.0
+texture = ExtResource("4_5yssw")
+
+[node name="Button" type="Button" parent="." unique_id=910454125]
+layout_mode = 0
+offset_left = 698.0
+offset_top = 789.0
+offset_right = 1205.0
+offset_bottom = 878.0
+theme_override_fonts/font = ExtResource("2_lwrlv")
+theme_override_font_sizes/font_size = 64
+text = "Launcher Game"
+flat = true
+
+[node name="github" type="LinkButton" parent="." unique_id=452256208]
+visible = false
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0
+uri = "https://github.com/riceliker/PhysicsWorld2"
+
+[node name="TextureRect" type="TextureRect" parent="github" unique_id=1970569886]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0
+texture = ExtResource("3_5p6du")
+expand_mode = 1

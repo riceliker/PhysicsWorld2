@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://5ea7dg4gmviy"]
+
+[ext_resource type="Script" uid="uid://cueoke5n37l1p" path="res://Page/Template/HeadRowBack/HeadRowBack.cs" id="1_uc3vr"]
+[ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_uc3vr"]
+[ext_resource type="Texture2D" uid="uid://dhc5eabqwx264" path="res://Assets/logo/used/exitLeft.png" id="3_g2jyw"]
+
+[node name="HeadRowBack" type="Control" unique_id=1357069392 node_paths=PackedStringArray("back_button", "label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uc3vr")
+back_button = NodePath("BackButton")
+label = NodePath("Title/Label")
+
+[node name="Title" type="ColorRect" parent="." unique_id=836082971]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 160.0
+color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+
+[node name="Label" type="Label" parent="Title" unique_id=1067805068]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 9.0
+offset_right = 1918.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("2_uc3vr")
+theme_override_font_sizes/font_size = 64
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=13775768]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 27.0
+offset_right = 138.0
+offset_bottom = 127.0
+texture_normal = ExtResource("3_g2jyw")

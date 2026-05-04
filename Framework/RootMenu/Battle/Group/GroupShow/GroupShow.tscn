@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://q7kjc66dypeq" path="res://Framework/RootMenu/Battle/Group/GroupShow/Script/GroupShow.cs" id="1_cbl1u"]
 [ext_resource type="Script" uid="uid://bq01j1g7nxe2k" path="res://Framework/RootMenu/Battle/Group/GroupShow/Script/CharacterShow.cs" id="1_gkobl"]
-[ext_resource type="PackedScene" uid="uid://5ea7dg4gmviy" path="res://Framework/Template/HeadRowBack/HeadRowBack.tscn" id="2_36c26"]
+[ext_resource type="PackedScene" uid="uid://5ea7dg4gmviy" path="res://Page/Template/HeadRowBack/HeadRowBack.tscn" id="2_36c26"]
 [ext_resource type="PackedScene" uid="uid://csost2i1fs8bo" path="res://DLCLocal/PhysicsWorld2Main/Character/Lily/Model/Lily.scn" id="2_cbl1u"]
-[ext_resource type="PackedScene" uid="uid://d32anltgrkibf" path="res://Framework/RootMenu/MainMenu/MainMenu.tscn" id="5_fcfsm"]
+[ext_resource type="PackedScene" uid="uid://d32anltgrkibf" path="res://Page/Home/MainMenu.tscn" id="5_fcfsm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yedqy"]
 size = Vector2(16, 8)

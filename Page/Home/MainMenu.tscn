@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://biofvap47nh4a" path="res://Page/Home/MainMenu.cs" id="1_lwrlv"]
 [ext_resource type="Texture2D" uid="uid://g2g26c0yxbna" path="res://Assets/ui/uilogo/Exit.png" id="2_07tko"]
-[ext_resource type="PackedScene" uid="uid://dwhhqtw2r5nal" path="res://Page/Setting/Optional/Optional.tscn" id="2_j7ly7"]
+[ext_resource type="PackedScene" uid="uid://dwhhqtw2r5nal" path="res://Page/Setting/Optional.tscn" id="2_j7ly7"]
 [ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_lwrlv"]
 [ext_resource type="Texture2D" uid="uid://dcbudrjt72ald" path="res://Assets/logo/LinkLogo/github/GitHub.svg" id="3_5p6du"]
 [ext_resource type="Texture2D" uid="uid://cb6djauqa8dxc" path="res://Assets/ui/uilogo/Setting.png" id="3_m8gmx"]
+[ext_resource type="PackedScene" uid="uid://8jmfb66a4rv" path="res://Page/DLCManager/DLCManager.tscn" id="3_qinup"]
 [ext_resource type="Texture2D" uid="uid://ddg0c61bcqrfs" path="res://Assets/ui/uilogo/DLC.png" id="4_5yssw"]
 
 [node name="MainMenu" type="Control" unique_id=543475209 node_paths=PackedStringArray("to_start_game", "to_optional_button", "to_DLC_manager_button", "quit_game_button")]
@@ -20,6 +21,7 @@ to_start_game = NodePath("Button")
 to_optional_button = NodePath("Bottom/Setting")
 optional_button = ExtResource("2_j7ly7")
 to_DLC_manager_button = NodePath("Bottom/DLC")
+DLC_manager_button = ExtResource("3_qinup")
 quit_game_button = NodePath("Bottom/Exit")
 
 [node name="Bottom" type="Control" parent="." unique_id=1279631174]

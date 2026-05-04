@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://dwhhqtw2r5nal"]
+
+[ext_resource type="Script" uid="uid://cs6loudxkpuxd" path="res://Page/Setting/Script/SwitchClass.cs" id="2_546uq"]
+[ext_resource type="FontFile" uid="uid://5eiti5xdt2jh" path="res://Assets/font/JetBrainsMono.ttf" id="2_w21ue"]
+[ext_resource type="Script" uid="uid://5yp4u1ksxw6m" path="res://Page/Setting/Script/Language.cs" id="3_chx5b"]
+[ext_resource type="Script" uid="uid://bfwspih0ppn1q" path="res://Page/Setting/Script/Windows/WindowModel.cs" id="4_qx3a6"]
+[ext_resource type="Theme" uid="uid://bk5fdcub3rp73" path="res://Assets/theme/OptionButton.theme" id="5_b5fvo"]
+[ext_resource type="Script" uid="uid://c21elxqditfl5" path="res://Page/Setting/Script/Debug/DLCSafe.cs" id="6_1nvih"]
+[ext_resource type="PackedScene" uid="uid://5ea7dg4gmviy" path="res://Page/Template/HeadRowBack/HeadRowBack.tscn" id="7_qx3a6"]
+
+[node name="Optional" type="Control" unique_id=1180624508]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Class" type="ColorRect" parent="." unique_id=997778669 node_paths=PackedStringArray("to_general_button", "to_windows_button", "to_input_button", "to_voice_button", "to_debug_button", "general", "windows", "input", "voice", "debug")]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 157.0
+offset_right = 479.0
+offset_bottom = 1077.0
+color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+script = ExtResource("2_546uq")
+to_general_button = NodePath("General")
+to_windows_button = NodePath("Windows")
+to_input_button = NodePath("Input")
+to_voice_button = NodePath("Voice")
+to_debug_button = NodePath("Debug")
+general = NodePath("../General")
+windows = NodePath("../Windows")
+input = NodePath("../Input")
+voice = NodePath("../Voice")
+debug = NodePath("../Debug")
+
+[node name="General" type="Button" parent="Class" unique_id=1215135841]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 480.0
+offset_bottom = 150.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 64
+text = "General"
+flat = true
+
+[node name="Windows" type="Button" parent="Class" unique_id=717092426]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 480.0
+offset_bottom = 300.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 64
+text = "Windows"
+flat = true
+
+[node name="Input" type="Button" parent="Class" unique_id=854821367]
+layout_mode = 0
+offset_top = 350.0
+offset_right = 480.0
+offset_bottom = 450.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 64
+text = "Input"
+flat = true
+
+[node name="Voice" type="Button" parent="Class" unique_id=699219287]
+layout_mode = 0
+offset_top = 500.0
+offset_right = 480.0
+offset_bottom = 600.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 64
+text = "Voice"
+flat = true
+
+[node name="Debug" type="Button" parent="Class" unique_id=944907563]
+layout_mode = 0
+offset_top = 650.0
+offset_right = 480.0
+offset_bottom = 750.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 64
+text = "Debug"
+flat = true
+
+[node name="General" type="Control" parent="." unique_id=1702277357]
+visible = false
+anchors_preset = 0
+offset_left = 480.0
+offset_top = 160.0
+offset_right = 480.0
+offset_bottom = 160.0
+
+[node name="AreaLanguage" type="Control" parent="General" unique_id=1457407471]
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="Label" type="Label" parent="General/AreaLanguage" unique_id=1000548328]
+layout_mode = 0
+offset_right = 499.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 64
+text = "Lanuage:"
+
+[node name="MenuButton" type="MenuButton" parent="General/AreaLanguage" unique_id=1698536985 node_paths=PackedStringArray("menu_button")]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 25.0
+scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 64
+switch_on_hover = true
+script = ExtResource("3_chx5b")
+menu_button = NodePath(".")
+
+[node name="Windows" type="Control" parent="." unique_id=1837673609]
+visible = false
+anchors_preset = 0
+offset_left = 480.0
+offset_top = 160.0
+offset_right = 480.0
+offset_bottom = 160.0
+
+[node name="WindowModel" type="Control" parent="Windows" unique_id=1297838297 node_paths=PackedStringArray("window_model")]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("4_qx3a6")
+window_model = NodePath("OptionButton")
+
+[node name="Label" type="Label" parent="Windows/WindowModel" unique_id=1748448817]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 48
+text = "Window Model:"
+
+[node name="OptionButton" type="OptionButton" parent="Windows/WindowModel" unique_id=465441765]
+layout_mode = 0
+offset_left = 420.0
+offset_right = 932.0
+offset_bottom = 64.0
+theme = ExtResource("5_b5fvo")
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 48
+
+[node name="Input" type="Control" parent="." unique_id=1101755584]
+visible = false
+anchors_preset = 0
+offset_left = 480.0
+offset_top = 160.0
+offset_right = 480.0
+offset_bottom = 160.0
+
+[node name="Voice" type="Control" parent="." unique_id=2107087875]
+visible = false
+anchors_preset = 0
+offset_left = 480.0
+offset_top = 160.0
+offset_right = 480.0
+offset_bottom = 160.0
+
+[node name="Debug" type="Control" parent="." unique_id=2109921890]
+visible = false
+anchors_preset = 0
+offset_left = 480.0
+offset_top = 160.0
+offset_right = 480.0
+offset_bottom = 160.0
+
+[node name="DLCSafe" type="Control" parent="Debug" unique_id=688577068 node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("6_1nvih")
+button = NodePath("Button")
+
+[node name="Label" type="Label" parent="Debug/DLCSafe" unique_id=650133093]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_w21ue")
+theme_override_font_sizes/font_size = 48
+text = "SafeGDScript Only"
+
+[node name="Button" type="Button" parent="Debug/DLCSafe" unique_id=1937115026]
+layout_mode = 0
+offset_left = 512.0
+offset_right = 768.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+text = "Able"
+
+[node name="HeadRowBack" parent="." unique_id=1357069392 instance=ExtResource("7_qx3a6")]
+layout_mode = 1
+back_scene = "res://Page/Home/MainMenu.tscn"
+title = "Optinoal"

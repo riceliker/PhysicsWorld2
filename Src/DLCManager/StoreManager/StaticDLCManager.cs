@@ -25,5 +25,18 @@ namespace PhysicsWorld.Src.DLCManager.StoreManager
                 action(name, info);
             }
         }
+        public static DLCInformation getDLCInformation(string name)
+        {
+            if(DLC_list.TryGetValue(name, out var info))
+            {
+                return info;
+            }
+            else
+            {
+                string err = $"DLCManager: The DLC:{name} not found.";
+                error_message.Add(err);
+                return default;
+            }
+        }
     }
 }

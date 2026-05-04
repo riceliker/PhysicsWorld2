@@ -23,7 +23,6 @@ namespace PhysicsWorld.Src.DLCManager.StoreManager
         }
         public string path {get;init;}
         public Description description = new Description();
-
         public string DLC_folder_name {get;init;}
         public string DLC_name {get;init;}
         public Texture2D icon {get;set;}
@@ -50,14 +49,13 @@ namespace PhysicsWorld.Src.DLCManager.StoreManager
                 {
                     base_information.addon_things.Add(item.ToString());
                 });
-
             });
-
-
+            (this as IGetJsonData).getJsonObject("DLC_Information", (info_data) =>
+            {
+                description.author = (this as IGetJsonData).getJsonValue<string>(info_data, "author");
+                description.description = (this as IGetJsonData).getJsonValue<string>(info_data, "description");
+                //description.url = (this as IGetJsonData).getJsonValue<string>(info_data, "url");
+            });
         }
-        
-
-        
-        
     }
 }

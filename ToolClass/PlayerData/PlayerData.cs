@@ -1,7 +1,7 @@
-using Godot;
-using System;
+// using Godot;
+// using System;
 
-public class PlayerData 
-{
-    public static GroupData local_player = new GroupData();
-}
+// public class PlayerData 
+// {
+//     public static GroupData local_player = new GroupData();
+// }

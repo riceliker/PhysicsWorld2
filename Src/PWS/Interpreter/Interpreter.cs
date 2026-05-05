@@ -1,11 +1,15 @@
 using System;
 using System.Collections.Generic;
 using Godot;
-using PhysicsWorld.Src.Terminal.Shell.Compile;
 
-namespace PhysicsWorld.Src.Terminal.Shell
+namespace PhysicsWorld.Src.PWS.Interpreter
 {
-    public partial class Interpreter : Node
+    /// <summary>
+    /// Developing the new program langrage is a difficult thing.
+    /// I don't know what I do.
+    /// So I try to run it first, and then write better.
+    /// </summary>
+    public class PWSInterpreter
     {
         private static Queue<string> output_list = new Queue<string>();
         public static void addOutPut(string mess)
@@ -33,28 +37,16 @@ namespace PhysicsWorld.Src.Terminal.Shell
         {
             obj, sta, str, sh
         }
-        public Interpreter()
+        public PWSInterpreter()
         {
-            string code = @"%% data 5i ;  ## $main ; 0i = a | - 1i | echo ; 0i = i | io.scan | -> i | < 10i ? echo i ; i % 2i | == 0i ? >? ;; echo i ?; #;";
+            string code = @"%% data 5i ;  ## $main ; ; 0i = a | - 1i | echo ; 0i = i | io.scan | -> i | < 10i ? echo i ; i % 2i | == 0i ? >? ;; echo i ?; #;";
             Lexer lexer = new Lexer(code);
             List<Lexer.Token> tokens = lexer.getTokens();
             MemberSlice memberSlice = new MemberSlice(tokens);
-            foreach (string i in memberSlice.GetGlobalVariableList().Keys)
-            {
-                MemberSlice.VariableData variant_data = memberSlice.GetGlobalVariableList()[i];
-                GD.PrintErr(variant_data.member_index," ", variant_data.name," ", variant_data.init_data);
-            }
-            foreach (string i in memberSlice.GetFunctionDataList().Keys)
-            {
-                GD.PrintErr(i);
-                MemberSlice.FunctionData functionData = memberSlice.GetFunctionDataList()[i];
-                foreach (string j in functionData.token_list.Keys)
-                {
-                    Lexer.Token jt = functionData.token_list[j];
-                    GD.PrintErr(jt.ToString());
-
-                }
-            }
+            FunctionSteam steam = new FunctionSteam(memberSlice.global_variable, memberSlice.function_list);
+            
+            GD.Print("=====");
+            
 
         }
         public static void PrintList(List<string> i)

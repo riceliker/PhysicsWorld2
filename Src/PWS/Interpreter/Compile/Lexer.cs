@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Godot;
 
-namespace PhysicsWorld.Src.Terminal.Shell.Compile
+namespace PhysicsWorld.Src.PWS.Interpreter
 {
     /// <summary>
     ///  When the class run, the code will be sliced.
@@ -14,7 +14,7 @@ namespace PhysicsWorld.Src.Terminal.Shell.Compile
     {
         public enum TokenType
         {
-            Empty, Assign, Calculate, CallFunc,   
+            Empty, Assign, Calculate, CallFunc, EndFunc, ForceAssign, Struct
         }
         public class Token
         {
@@ -37,8 +37,8 @@ namespace PhysicsWorld.Src.Terminal.Shell.Compile
         }
         List<Token> tokens = new List<Token>();
         public char[] separators = { ' ', '\t', '\n', '\r' };
-        public string[] token_end_slice = { ";", "|", ";;", "?", "?;", "#;"};
-        public string[] computing = {"+", "-", "*" , "/", "%", ">", "<", ">=", "<=", "==", "?=" , ":=", "!=",
+        public static string[] token_end_slice = { ";", "|", ";;", "?", "?;", "#;"};
+        public static string[] computing = {"+", "-", "*" , "/", "%", ">", "<", ">=", "<=", "==", "?=" , ":=", "!=",
         "!", "&" ,"=" , "->"};
         public Lexer(string input)
         {
@@ -66,6 +66,8 @@ namespace PhysicsWorld.Src.Terminal.Shell.Compile
             }
             this.tokens = tokens;
         }
+        // I allow the user that ignore the `<>` if in the head of statement.
+        // But in Interpreter, 
         private void addPipeWildcard()
         {
             

@@ -1,6 +1,6 @@
 using Godot;
 using System;
-namespace PhysicsWorld.Src.Terminal.Shell
+namespace PhysicsWorld.Src.PWS.Interpreter
 {
     public class ShellError
     {

@@ -1,6 +1,7 @@
 using Godot;
 using System.Threading.Tasks;
 using PhysicsWorld.Src.DLCManager.StoreManager;
+using PhysicsWorld.Src.Terminal.Shell;
 /*
 	All thing which need load and then go to main menu must run here.
 	When it start: First Loading
@@ -13,5 +14,6 @@ public partial class FirstLoading : Node
 	public async override void _Ready()
 	{
 		new LoadDLC();
+		new PWSInterpreter();
 	}
 }

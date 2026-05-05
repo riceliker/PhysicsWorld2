@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
-namespace PhysicsWorld.Src.Terminal.Shell.Compile
+namespace PhysicsWorld.Src.PWS.Interpreter
 {
     public class MemberSlice
     {
+        public static string[] computing = {"+", "-", "*" , "/", "%", ">", "<", ">=", "<=", "==", "?=" , ":=", "!=",
+        "!", "&"};
+        public static string[] is_struct = {">?", ">!"};
         // `: annotation @: comment %%: variable ##: function
         // the _ mean private 
-        private Dictionary<string, VariableData> global_variable = new Dictionary<string, VariableData>();
-        private Dictionary<string, FunctionData> function_list = new Dictionary<string, FunctionData>();
+        public Dictionary<string, VariableData> global_variable = new Dictionary<string, VariableData>();
+        public Dictionary<string, FunctionData> function_list = new Dictionary<string, FunctionData>();
         public class MemberBaseData
         {
             public int member_index;
@@ -22,7 +25,7 @@ namespace PhysicsWorld.Src.Terminal.Shell.Compile
         }
         public class FunctionData : MemberBaseData
         {
-            public Dictionary<string, Lexer.Token> token_list = new Dictionary<string, Lexer.Token>();
+            public List<Lexer.Token> token_list = new List<Lexer.Token>();
             public List<string> formal_parameter_list = new List<string>();
         }
         public class VariableData : MemberBaseData
@@ -54,7 +57,7 @@ namespace PhysicsWorld.Src.Terminal.Shell.Compile
                 {
                     if (i.context.Count != 3)
                     {
-                        Interpreter.addOutPut($"Building Error In {member_index}: Error named the global name");
+                        PWSInterpreter.addOutPut($"Building Error In {member_index}: Error named the global name");
                     }
                     temp_comment_name = i.context[1];
                     temp_comment_value = i.context[2];
@@ -79,7 +82,7 @@ namespace PhysicsWorld.Src.Terminal.Shell.Compile
                     }
                     else
                     {
-                        Interpreter.addOutPut($"Building Error In {member_index}: The same variable name");
+                        PWSInterpreter.addOutPut($"Building Error In {member_index}: The same variable name");
                     }
                     is_function = false;
                     continue;
@@ -95,7 +98,7 @@ namespace PhysicsWorld.Src.Terminal.Shell.Compile
                         }
                         else
                         {
-                            Interpreter.addOutPut($"Building Error In {member_index}: The same function name");
+                            PWSInterpreter.addOutPut($"Building Error In {member_index}: The same function name");
                         }
                     }
                     currentFunction = new FunctionData();
@@ -122,9 +125,31 @@ namespace PhysicsWorld.Src.Terminal.Shell.Compile
                 // Now you can add token in function
                 if (is_function && currentFunction != null)
                 {
-                    currentFunction.token_list ??= new Dictionary<string, Lexer.Token>();
-                    if (!currentFunction.token_list.ContainsKey(member_index.ToString()))
-                        currentFunction.token_list.Add(member_index.ToString(), i);
+                    currentFunction.token_list ??= new List<Lexer.Token>();
+                    if (!currentFunction.token_list.Contains(i))
+                    {
+                        i.type = Lexer.TokenType.CallFunc;
+                        if (i.context.Count == 1)
+                        {
+                            if (i.context[0] == "#;")
+                                i.type = Lexer.TokenType.EndFunc;
+                            
+                        }
+                        if (i.context.Count == 2 && is_struct.Contains(i.context[0]))
+                            i.type = Lexer.TokenType.Struct;
+
+                        if (i.context.Count == 4)
+                        {
+                            if (Lexer.computing.Contains(i.context[1]))
+                                i.type = Lexer.TokenType.Calculate;
+                            if (i.context[1] == "=")
+                                i.type = Lexer.TokenType.Assign;  
+                            if (i.context[1] == "->")
+                                i.type = Lexer.TokenType.ForceAssign;
+                        }
+                        currentFunction.token_list.Add(i);
+                    }
+                        
                 }
                 is_function = true;
 
@@ -139,7 +164,7 @@ namespace PhysicsWorld.Src.Terminal.Shell.Compile
                 }
                 else
                 {
-                    Interpreter.addOutPut("Building Error: The same function name");
+                    PWSInterpreter.addOutPut("Building Error: The same function name");
                 }
             }
         }

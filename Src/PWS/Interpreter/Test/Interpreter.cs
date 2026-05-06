@@ -34,7 +34,7 @@ namespace PhysicsWorld.Src.PWS.Interpreter
         }
         public PWSInterpreter()
         {
-            string code = @"%% data 5i ;  ## $main ; ; 0i = a | - 1i | echo ; 0i = i | io.scan | -> i | < 10i ? echo i ; i % 2i | == 0i ? >? ;; echo i ?; #;";
+            string code = @"%% data 5i ;  ## $main ; ; 5i = a | - 1i | $io.echo ; 3i = i | $io.scan | -> i | < 10i ? $io.echo i ; i % 2i | == 0i ? >? ;; $io.echo i ?; #;";
             Lexer lexer = new Lexer(code);
             PWSFunctionDictionary fd = lexer.returnData();
             fd.runFunction("$main", new List<string>());

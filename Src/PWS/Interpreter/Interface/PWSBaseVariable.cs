@@ -6,65 +6,23 @@ namespace PhysicsWorld.Src.PWS.Interpreter
 {
     public class PWSBaseVariableDictionary
     {
-        public Dictionary<string, int> int_variable_list = new Dictionary<string, int>();
-        public Dictionary<string, float> float_variable_list = new Dictionary<string, float>();
-        public Dictionary<string, string> string_variable_list = new Dictionary<string, string>();
-        public Dictionary<string, bool> bool_variable_list = new Dictionary<string, bool>();
-        public (bool, object) tryGetDataFromList(Type type, string name)
+        public Dictionary<string, string> value_string_variable_list = new Dictionary<string, string>();
+        public string tryGetDataFromList(string name)
         {
-            bool success = true;
-            object result = default;
-            switch (type)
+            if (value_string_variable_list.TryGetValue(name, out var value))
             {
-                case Type _ when type == typeof(int):
-                    if(int_variable_list.TryGetValue(name, out var value0)) result = (object)value0;
-                    else success = false;
-                    break;
-                case Type _ when type == typeof(float):
-                    if(float_variable_list.TryGetValue(name, out var value1)) result = (object)value1;
-                    else success = false;
-                    break;
-                case Type _ when type == typeof(string):
-                    if(string_variable_list.TryGetValue(name, out var value2)) result = (object)value2;
-                    else success = false;
-                    break;
-                case Type _ when type == typeof(bool):
-                    if(bool_variable_list.TryGetValue(name, out var value3)) result = (object)value3;
-                    else success = false;
-                    break;
-                default:
-                    success = false;
-                    result = default;
-                    break;
-            };
-            return (success, result);
+                return value;
+            }
+            return null;
         }
-        public bool trySetDataFromList(Type type, string name, object value)
+        public bool trySetDataFromList(string name, string value_string)
         {
-            bool success = true;
-            switch (type)
+            if (value_string_variable_list.ContainsKey(name))
             {
-                case Type _ when type == typeof(int):
-                    if(int_variable_list.TryGetValue(name, out var value0)) int_variable_list[name] = value0;
-                    else success = false;
-                    break;
-                case Type _ when type == typeof(float):
-                    if(float_variable_list.TryGetValue(name, out var value1)) float_variable_list[name] = value1;
-                    else success = false;
-                    break;
-                case Type _ when type == typeof(string):
-                    if(string_variable_list.TryGetValue(name, out var value2)) string_variable_list[name] = value2;
-                    else success = false;
-                    break;
-                case Type _ when type == typeof(bool):
-                    if(bool_variable_list.TryGetValue(name, out var value3)) bool_variable_list[name] = value3;
-                    else success = false;
-                    break;
-                default:
-                    success = false;
-                    break;
-            };
-            return success;
+                value_string_variable_list[name] = value_string;
+                return true;
+            }
+            return false;
         }
         
         /// <summary>
@@ -76,22 +34,7 @@ namespace PhysicsWorld.Src.PWS.Interpreter
         /// <returns></returns>
         public void addVariableFromString(string name, string value_string)
         {
-            (Type type, object value) = PWSAnalysesType.analysesValueGetType(value_string);
-            switch(type)
-            {
-                case Type _ when type == typeof(int):
-                    int_variable_list.Add(name, (int)value);
-                    break; 
-                case Type _ when type == typeof(float):
-                    float_variable_list.Add(name, (float)value);
-                    break;
-                case Type _ when type == typeof(string):
-                    string_variable_list.Add(name, (string)value);
-                    break;
-                case Type _ when type == typeof(bool):
-                    bool_variable_list.Add(name, (bool)value);
-                    break;
-            }
+            value_string_variable_list.Add(name, value_string);
         }
 
     }

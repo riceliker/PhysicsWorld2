@@ -61,7 +61,6 @@ namespace PhysicsWorld.Src.PWS.Interpreter
             PWSFunctionInformation currentFunction = null;
             foreach(PWSToken i in script_tokens)
             {
-                PWSInterpreter.PrintList("loop",i.context);
                 PWSFunctionInformation function_data = new PWSFunctionInformation();
                 // mean annotation, ignore token
                 if (i.context[0] == "`")

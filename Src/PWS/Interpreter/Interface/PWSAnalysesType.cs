@@ -4,10 +4,15 @@ using System;
 namespace PhysicsWorld.Src.PWS.Interpreter
 {
     public class PWSWildcard;
-    public class PWSFunction;
+    public class PWSGetValue;
     public static class PWSAnalysesType
     {
-        public static (Type, object) analysesValueGetType(string value)
+        /// <summary>
+        /// value_string -> type, object
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static (Type, object) tryGetTypeObjectByString(string value)
         {
             if (value.StartsWith('"') && value.EndsWith('"'))
             {
@@ -15,7 +20,7 @@ namespace PhysicsWorld.Src.PWS.Interpreter
                 return (typeof(string), str); 
             }
 
-            if (value.EndsWith('i'))
+            if (value.EndsWith('i') && value.Length > 1 && (char.IsDigit(value[0]) || value[0] == '-'))
             {
                 string numStr = value[0..^1];
                 int num = int.Parse(numStr);
@@ -23,7 +28,7 @@ namespace PhysicsWorld.Src.PWS.Interpreter
             }
 
             // float
-            if (value.EndsWith('f'))
+            if (value.EndsWith('f') && value.Length > 1 && (char.IsDigit(value[0]) || value[0] == '-'))
             {
                 string numStr = value[0..^1];
                 float num = float.Parse(numStr);
@@ -38,54 +43,66 @@ namespace PhysicsWorld.Src.PWS.Interpreter
             {
                 return (typeof(PWSWildcard), null);
             }
-            return (typeof(PWSFunction), null);
-            
-            
+            return (typeof(PWSGetValue), null);    
         }
-        /// <summary>
-        /// If the value will change T to U
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <typeparam name="U"></typeparam>
-        /// <returns></returns>
-        public static (bool success, object result) TryChangeData(object value, Type from, Type to)
+        public static T tryGetTypeObjectByString<T>(string value)
         {
-            try
+            if (string.IsNullOrWhiteSpace(value))
+                return default;
+            if (value.StartsWith('"') && value.EndsWith('"'))
             {
-                if (value == null)
-                {
-                    return (false, to.IsValueType ? Activator.CreateInstance(to) : null);
-                }
-
-                if (from == to)
-                {
-                    return (true, value);
-                }
-
-                if (to == typeof(string))
-                {
-                    return (true, value.ToString() ?? "");
-                }
-
-                if (value is IConvertible convertible)
-                {
-                    object result = Convert.ChangeType(value, to);
-                    return (true, result);
-                }
-
-                return (false, GetDefaultValue(to));
+                string str = value.Trim('"');
+                return (T)(object)str; 
             }
-            catch
+
+            if (value.EndsWith('i') && value.Length > 1 && (char.IsDigit(value[0]) || value[0] == '-'))
             {
-                return (false, GetDefaultValue(to));
+                string numStr = value[0..^1];
+                if (string.IsNullOrWhiteSpace(numStr))
+                    return default;
+
+                if (int.TryParse(numStr, out int num))
+                    return (T)(object)num;
             }
+
+            // float
+            if (value.EndsWith('f') && value.Length > 1 && (char.IsDigit(value[0]) || value[0] == '-'))
+            {
+                string numStr = value[0..^1];
+                if (string.IsNullOrWhiteSpace(numStr))
+                    return default;
+                if (float.TryParse(numStr, out float num))
+                    return (T)(object)num;
+            }
+            if (value == "true" || value == "false")
+            {
+                bool boolean = bool.Parse(value);
+                return (T)(object)boolean;
+            }
+            if (value == "<>")
+            {
+                return (T)(object)new PWSWildcard();
+            }
+            return (T)(object)new PWSGetValue();    
         }
-
-        private static object GetDefaultValue(Type type)
+        public static string tryGetStringByTypeObject<T>(object value)
         {
-            return type.IsValueType ? Activator.CreateInstance(type) : null;
+            Type type = typeof(T);
+            switch(type)
+            {
+                case Type _ when type == typeof(int):
+                    return value.ToString()+"i";
+                case Type _ when type == typeof(float):
+                    return value.ToString()+"f";
+                case Type _ when type == typeof(string):
+                    return value.ToString();
+                case Type _ when type == typeof(bool):
+                    return value.ToString().ToLower();
+                default:
+                    return "";
+            }
         }
-        public static string TryGetStringByTypeObject(Type type, object value)
+        public static string tryGetStringByTypeObject(Type type, object value)
         {
             switch(type)
             {
@@ -96,10 +113,59 @@ namespace PhysicsWorld.Src.PWS.Interpreter
                 case Type _ when type == typeof(string):
                     return value.ToString();
                 case Type _ when type == typeof(bool):
-                    return value.ToString();
+                    return value.ToString().ToLower();
                 default:
                     return "";
             }
+        }
+        /// <summary>
+        /// value_string -> type
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static Type analysesValueGetType(string value)
+        {
+            if (value.StartsWith('"') && value.EndsWith('"'))
+            {
+                return typeof(string); 
+            }
+
+            if (value.EndsWith('i') && value.Length > 1 && (char.IsDigit(value[0]) || value[0] == '-'))
+            {
+                return typeof(int);
+            }
+
+            // float
+            if (value.EndsWith('f') && value.Length > 1 && (char.IsDigit(value[0]) || value[0] == '-'))
+            {
+                return typeof(float);
+            }
+            if (value == "true" || value == "false")
+            {
+                return typeof(bool);
+            }
+            if (value == "<>")
+            {
+                return typeof(PWSWildcard);
+            }
+            return typeof(PWSGetValue);
+            
+            
+        }
+        /// <summary>
+        /// change type
+        /// </summary>
+        /// <param name="value_string"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
+        public static string TryChangeData(string value_string, Type to)
+        {
+            (Type type, object result) = tryGetTypeObjectByString(value_string);
+            return tryGetStringByTypeObject(to, result);
+        }
+        private static object GetDefaultValue(Type type)
+        {
+            return type.IsValueType ? Activator.CreateInstance(type) : null;
         }
         
     }

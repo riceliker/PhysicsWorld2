@@ -19,7 +19,7 @@ namespace PhysicsWorld.Src.PWS.Interpreter
         {
             if (function_dictionary.TryGetValue(function_name, out var result))
             {
-                new FunctionUnit(global_variable, result, param_list);
+                FunctionUnit function_unit = new FunctionUnit(this , global_variable, result, param_list);
             }
             
         }

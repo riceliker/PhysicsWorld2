@@ -6,6 +6,6 @@ namespace PhysicsWorld.Src.PWS.Interpreter
 {
     public class PWSGlobalVariable
     {
-        public PWSBaseVariableDictionary variable_dictionary = new PWSBaseVariableDictionary();
+        public BaseVariableDictionary variable_dictionary = new BaseVariableDictionary();
     }
 }

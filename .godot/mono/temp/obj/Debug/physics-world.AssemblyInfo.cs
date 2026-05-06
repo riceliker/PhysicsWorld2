@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("physics-world")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09163469d33fde12a3bc2875d612d13838d00bcc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+475dec240769bb10b1ac9d94e1343e5104cbafc4")]
 [assembly: System.Reflection.AssemblyProductAttribute("physics-world")]
 [assembly: System.Reflection.AssemblyTitleAttribute("physics-world")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

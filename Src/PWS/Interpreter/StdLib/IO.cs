@@ -7,7 +7,7 @@ namespace PhysicsWorld.Src.PWS.Interpreter
     {
         public static string scan()
         {
-            return "6i";
+            return "\"6\"";
         }
         public static void echo(string mess)
         {

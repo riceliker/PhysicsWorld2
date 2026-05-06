@@ -16,7 +16,7 @@ namespace PhysicsWorld.Src.PWS.Interpreter
         PWSGlobalVariable global_variable = new PWSGlobalVariable();
         PWSFunctionDictionary function_dictionary = new PWSFunctionDictionary();
         public char[] separators = { ' ', '\t', '\n', '\r' };
-        public static string[] token_end_slice = { ";", "|", ";;", "?", "?;", "#;", "`"};
+        public static string[] token_end_slice = { ";", "|", ";;", "?", ":", "?;", "#;", "`"};
         public static string[] computing = {"+", "-", "*" , "/", "%", ">", "<", ">=", "<=", "==", "?=" , ":=", "!=",
         "!", "&" ,"=" , "->"};
         public static string[] is_struct = {">?", ">!"};
@@ -121,7 +121,6 @@ namespace PhysicsWorld.Src.PWS.Interpreter
                         }
                         
                     }
-                    GD.Print("Func:",currentFunction.parament_name.Count);
                     continue;
                 }
 

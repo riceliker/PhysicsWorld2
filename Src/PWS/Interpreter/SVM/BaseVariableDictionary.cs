@@ -4,7 +4,10 @@ using System.Collections.Generic;
 
 namespace PhysicsWorld.Src.PWS.Interpreter
 {
-    public class PWSBaseVariableDictionary
+    /// <summary>
+    /// This class will store the variable in the function unit, and try to analyses the type of variable by the string.
+    /// </summary>
+    public class BaseVariableDictionary
     {
         public Dictionary<string, string> value_string_variable_list = new Dictionary<string, string>();
         public string tryGetDataFromList(string name)

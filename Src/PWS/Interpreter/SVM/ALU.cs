@@ -4,23 +4,27 @@ using System.Linq;
 
 namespace PhysicsWorld.Src.PWS.Interpreter
 {
-    public static class CalculateUnit
+    /// <summary>
+    /// All math operation and compare operation will be done in this class.
+    /// </summary>
+    public static class ALU
     {
         public static string calculate(string a, string ope, string b)
         {
-            if (PWSAnalysesType.analysesValueGetType(a) != PWSAnalysesType.analysesValueGetType(b))
+            // check type
+            if (AnalysesType.analysesValueGetType(a) != AnalysesType.analysesValueGetType(b))
             {
                 if (ope == ":=")
                 {
-                    return PWSAnalysesType.tryGetStringByTypeObject<bool>(false);
+                    return AnalysesType.tryGetStringByTypeObject<bool>(false);
                 }
                 throw new($"Building Error In {a} {ope} {b}: The calculate type was not same");
             }
             if (ope == ":=")
             {
-                return PWSAnalysesType.tryGetStringByTypeObject<bool>(true);
+                return AnalysesType.tryGetStringByTypeObject<bool>(true);
             }
-            Type type = PWSAnalysesType.analysesValueGetType(a);
+            Type type = AnalysesType.analysesValueGetType(a);
             // Basic Calculate
             string[] basic_ope = ["+", "-", "*", "/", "%"];
             if (basic_ope.Contains(ope))
@@ -29,25 +33,25 @@ namespace PhysicsWorld.Src.PWS.Interpreter
                 switch (type)
                 {
                     case Type _ when type == typeof(int):
-                        int int_a = PWSAnalysesType.tryGetTypeObjectByString<int>(a);
-                        int int_b = PWSAnalysesType.tryGetTypeObjectByString<int>(b);
+                        int int_a = AnalysesType.tryGetTypeObjectByString<int>(a);
+                        int int_b = AnalysesType.tryGetTypeObjectByString<int>(b);
                         int int_o = basicCalculate<int>(int_a, ope, int_b);
-                        return PWSAnalysesType.tryGetStringByTypeObject<int>(int_o);
+                        return AnalysesType.tryGetStringByTypeObject<int>(int_o);
                     case Type _ when type == typeof(float):
-                        float float_a = PWSAnalysesType.tryGetTypeObjectByString<float>(a);
-                        float float_b = PWSAnalysesType.tryGetTypeObjectByString<float>(b);
+                        float float_a = AnalysesType.tryGetTypeObjectByString<float>(a);
+                        float float_b = AnalysesType.tryGetTypeObjectByString<float>(b);
                         float float_o = basicCalculate<float>(float_a, ope, float_b);
-                        return PWSAnalysesType.tryGetStringByTypeObject<float>(float_o);
+                        return AnalysesType.tryGetStringByTypeObject<float>(float_o);
                     case Type _ when type == typeof(string):
-                        string string_a = PWSAnalysesType.tryGetTypeObjectByString<string>(a);
-                        string string_b = PWSAnalysesType.tryGetTypeObjectByString<string>(b);
+                        string string_a = AnalysesType.tryGetTypeObjectByString<string>(a);
+                        string string_b = AnalysesType.tryGetTypeObjectByString<string>(b);
                         string string_o = basicCalculate<string>(string_a, ope, string_b);
-                        return PWSAnalysesType.tryGetStringByTypeObject<string>(string_o);
+                        return AnalysesType.tryGetStringByTypeObject<string>(string_o);
                     case Type _ when type == typeof(bool):
-                        bool bool_a = PWSAnalysesType.tryGetTypeObjectByString<bool>(a);
-                        bool bool_b = PWSAnalysesType.tryGetTypeObjectByString<bool>(b);
+                        bool bool_a = AnalysesType.tryGetTypeObjectByString<bool>(a);
+                        bool bool_b = AnalysesType.tryGetTypeObjectByString<bool>(b);
                         bool bool_o = basicCalculate<bool>(bool_a, ope, bool_b);
-                        return PWSAnalysesType.tryGetStringByTypeObject<bool>(bool_o);
+                        return AnalysesType.tryGetStringByTypeObject<bool>(bool_o);
                     default:
                         return "";
                 }
@@ -56,29 +60,29 @@ namespace PhysicsWorld.Src.PWS.Interpreter
             string[] compare_ope = ["&", "|", "^", "!", "==", "!=", ">", "<", ">=", "<="];
             if (compare_ope.Contains(ope))
             {
-                Type type1 = PWSAnalysesType.analysesValueGetType(a);
+                Type type1 = AnalysesType.analysesValueGetType(a);
                 switch (type1)
                 {
                     case Type _ when type1 == typeof(int):
-                        int int_a = PWSAnalysesType.tryGetTypeObjectByString<int>(a);
-                        int int_b = PWSAnalysesType.tryGetTypeObjectByString<int>(b);
+                        int int_a = AnalysesType.tryGetTypeObjectByString<int>(a);
+                        int int_b = AnalysesType.tryGetTypeObjectByString<int>(b);
                         bool int_o = compareCalculate<int>(a, ope, b);
-                        return PWSAnalysesType.tryGetStringByTypeObject<bool>(int_o);
+                        return AnalysesType.tryGetStringByTypeObject<bool>(int_o);
                     case Type _ when type1 == typeof(float):
-                        float float_a = PWSAnalysesType.tryGetTypeObjectByString<float>(a);
-                        float float_b = PWSAnalysesType.tryGetTypeObjectByString<float>(b);
+                        float float_a = AnalysesType.tryGetTypeObjectByString<float>(a);
+                        float float_b = AnalysesType.tryGetTypeObjectByString<float>(b);
                         bool float_o = compareCalculate<float>(a, ope, b);
-                        return PWSAnalysesType.tryGetStringByTypeObject<bool>(float_o);
+                        return AnalysesType.tryGetStringByTypeObject<bool>(float_o);
                     case Type _ when type1 == typeof(string):
-                        string string_a = PWSAnalysesType.tryGetTypeObjectByString<string>(a);
-                        string string_b = PWSAnalysesType.tryGetTypeObjectByString<string>(b);
+                        string string_a = AnalysesType.tryGetTypeObjectByString<string>(a);
+                        string string_b = AnalysesType.tryGetTypeObjectByString<string>(b);
                         bool string_o = compareCalculate<string>(a, ope, b);
-                        return PWSAnalysesType.tryGetStringByTypeObject<bool>(string_o);
+                        return AnalysesType.tryGetStringByTypeObject<bool>(string_o);
                     case Type _ when type1 == typeof(bool):
-                        bool bool_a = PWSAnalysesType.tryGetTypeObjectByString<bool>(a);
-                        bool bool_b = PWSAnalysesType.tryGetTypeObjectByString<bool>(b);
+                        bool bool_a = AnalysesType.tryGetTypeObjectByString<bool>(a);
+                        bool bool_b = AnalysesType.tryGetTypeObjectByString<bool>(b);
                         bool bool_o = compareCalculate<bool>(a, ope, b);
-                        return PWSAnalysesType.tryGetStringByTypeObject<bool>(bool_o);
+                        return AnalysesType.tryGetStringByTypeObject<bool>(bool_o);
                     default:
                         return "";
                 }
@@ -92,8 +96,8 @@ namespace PhysicsWorld.Src.PWS.Interpreter
                 {
                     throw new($"Building Error In {a} {ope} {b}: No support calculate operation");
                 }
-                bool bool_a = PWSAnalysesType.tryGetTypeObjectByString<bool>(a);
-                bool bool_b = PWSAnalysesType.tryGetTypeObjectByString<bool>(b);
+                bool bool_a = AnalysesType.tryGetTypeObjectByString<bool>(a);
+                bool bool_b = AnalysesType.tryGetTypeObjectByString<bool>(b);
                 bool bool_o = false;
                 switch (ope)
                 {
@@ -113,7 +117,7 @@ namespace PhysicsWorld.Src.PWS.Interpreter
                         bool_o = false;
                         break;
                 }
-                return PWSAnalysesType.tryGetStringByTypeObject<bool>(bool_o);
+                return AnalysesType.tryGetStringByTypeObject<bool>(bool_o);
             }
             throw new($"Building Error In {a} {ope} {b}: No support calculate operation");
         }
@@ -152,8 +156,8 @@ namespace PhysicsWorld.Src.PWS.Interpreter
         }
         public static bool compareCalculate<T>(string sa, string ope, string sb)
         {
-            T a = PWSAnalysesType.tryGetTypeObjectByString<T>(sa);
-            T b = PWSAnalysesType.tryGetTypeObjectByString<T>(sb);
+            T a = AnalysesType.tryGetTypeObjectByString<T>(sa);
+            T b = AnalysesType.tryGetTypeObjectByString<T>(sb);
             if (ope == "==")
             {
                 return a.Equals(b);

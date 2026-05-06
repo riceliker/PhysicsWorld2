@@ -3,7 +3,7 @@ using System;
 
 namespace PhysicsWorld.Src.PWS.Interpreter
 {
-    public class PWSPipelineData
+    public class PipelineData
     {
         private string value;
         public void pushInPipeline(string value_string)
@@ -14,15 +14,11 @@ namespace PhysicsWorld.Src.PWS.Interpreter
         {
             return value;
         }
-        public static PWSPipelineData clone(PWSPipelineData data)
+        public static PipelineData clone(PipelineData data)
         {
-            var newData = new PWSPipelineData();
+            var newData = new PipelineData();
             newData.value = data.value;
             return newData;
-        }
-        public void setValue(string value_string)
-        {
-            value = value_string;
         }
     }
 }
